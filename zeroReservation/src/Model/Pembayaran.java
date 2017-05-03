@@ -12,4 +12,5 @@ package Model;
 public class Pembayaran {
     private int idBayar;
     private String tglBayar;
+    
 }

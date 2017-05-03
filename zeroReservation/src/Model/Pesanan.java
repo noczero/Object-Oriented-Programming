@@ -13,13 +13,13 @@ public class Pesanan {
     private int idPesan;
     private String noKtp;
     private int idBayar;
-    private int noSeat;
+    private String noSeat;
     private long totalHarga;
     private String tanggalPesan;
     private String status;
     private String kodeBooking;
 
-    public Pesanan(int idPesan, String noKtp, int idBayar, int noSeat, long totalHarga, String tanggalPesan, String status, String kodeBooking) {
+    public Pesanan(int idPesan, String noKtp, int idBayar, String noSeat, long totalHarga, String tanggalPesan, String status, String kodeBooking) {
         this.idPesan = idPesan;
         this.noKtp = noKtp;
         this.idBayar = idBayar;
@@ -54,11 +54,11 @@ public class Pesanan {
         this.idBayar = idBayar;
     }
 
-    public int getNoSeat() {
+    public String getNoSeat() {
         return noSeat;
     }
 
-    public void setNoSeat(int noSeat) {
+    public void setNoSeat(String noSeat) {
         this.noSeat = noSeat;
     }
 

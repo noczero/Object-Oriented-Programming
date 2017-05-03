@@ -15,21 +15,59 @@ import java.util.ArrayList;
 public class Application {
         private Database connection;
         ArrayList<Customer> listCustomer = new ArrayList();
+        ArrayList<Admin> listAdmin = new ArrayList();
+        ArrayList<Maskapai> listMaskapai = new ArrayList();
         
         public Application() {
             connection = new Database();
-             connection.connectDB();
+            connection.connectDB();
+        }
+        
+        // Login Scheme
+        public Admin cekLoginAdmin(String username , String password){
+            Admin admin = connection.cekLoginAdmin(username, password);
+            
+            if (admin != null)
+                return admin;
+            else
+                return null;
+        }
+        
+        public Customer cekLoginCustomer(String username , String password){
+            Customer customer = connection.cekLoginCustomer(username,password);
+            
+            if(customer != null)
+                return customer;
+            else 
+                return null;
+        }
+        
+        public Maskapai cekLoginMaskapai(String username , String password){
+            Maskapai maskapai = connection.cekLoginMaskapai(username, password);
+            
+            if(maskapai != null)
+                return maskapai;
+            else
+                return null;
         }
         
         // Customer CRUD
-        public void addCustomer(Customer cust) {
-          // listCustomer.add(cust);
-           connection.insertCustomer(cust);
+        public void addCustomer(Customer customer) {
+           connection.insertCustomer(customer);
         }
         
         public ArrayList<Customer> getCustomer() {
             return connection.getAllCustomer();
         }
+        
+        public void updateCustumer(Customer customer) {
+            connection.updateCustomer(customer);
+        }
+        
+        public void deleteCustomer(String id) {
+            connection.deleteCustomer(id);
+        }
+        
         
         
 }

@@ -22,6 +22,19 @@ public class Customer extends User {
     private String noTelepon;
     private long saldo;
 
+    public Customer(String noktp, String username, String password, String nama,  String alamat, int umur, String jenisKelamin, String noTelepon, long saldo) {
+        this.username = username;
+        this.password = password;
+        this.nama = nama;
+        this.noktp = noktp;
+        this.alamat = alamat;
+        this.umur = umur;
+        this.jenisKelamin = jenisKelamin;
+        this.noTelepon = noTelepon;
+        this.saldo = saldo;
+    }
+    
+    // - saldo
     public Customer(String noktp, String username, String password, String nama,  String alamat, int umur, String jenisKelamin, String noTelepon) {
         this.username = username;
         this.password = password;
@@ -31,6 +44,7 @@ public class Customer extends User {
         this.umur = umur;
         this.jenisKelamin = jenisKelamin;
         this.noTelepon = noTelepon;
+        this.saldo = saldo;
     }
 
     public String getNama() {
