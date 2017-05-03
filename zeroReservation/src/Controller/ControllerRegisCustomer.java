@@ -40,7 +40,6 @@ public class ControllerRegisCustomer implements ActionListener {
         
         if(obj.equals(view.getBtnSave())){
             //ring password, String nama, String noktp, String alamat, int umur, String jenisKelamin, String noTelepon
-            System.out.println("EAA");
             String jenisKelamin;
             if (view.getRbtnLaki().isSelected()) {
                 jenisKelamin = "L";
@@ -50,7 +49,6 @@ public class ControllerRegisCustomer implements ActionListener {
             
             int umur = parseInt(view.getTfUmur().getText());
             customer = new Customer(view.getTfNoKTP().getText(),view.getTfUsername().getText(),view.getTfPassword().getText(),view.getTfNama().getText(),  view.getTfAlamat().getText() , umur , jenisKelamin , view.getTfNoTelepon().getText());
-            System.out.println(customer);
             model.addCustomer(customer);
             //customer.insertCustomer(customer);
         } else if (obj.equals(view.getBtnCancel())) {
