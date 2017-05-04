@@ -736,6 +736,8 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
         btnInsertJadwal.addActionListener(al);
         btnUpdateJadwal.addActionListener(al);
         btnDeleteJadwal.addActionListener(al);
+        
+        btnLogOut.addActionListener(al);
     }
 
     public void addMouseListener(MouseListener ml) {

@@ -12,8 +12,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import static java.lang.Integer.parseInt;
 import static java.lang.Long.parseLong;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -36,6 +38,9 @@ public class ControllerCustomer implements ActionListener, MouseListener {
         this.customer = customer;
         showTiketTable();
         setAllAtribute();
+        refreshSaldo();
+        setAllAtribute();
+        setAllProfile();
     }
 
     //show tiket table
@@ -66,21 +71,52 @@ public class ControllerCustomer implements ActionListener, MouseListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Object pilih = e.getSource();
-        
+
         //isiSaldoDulu
         if (pilih.equals(view.getBtnIsiSaldo())) {
-            
             Long mySaldo = model.getSaldo(customer.getNoktp());
-            
-            model.updateSaldo(customer.getNoktp(), mySaldo + parseLong(view.getTfInputSaldo().getText()));
-            
-            
             view.getLblSaldoSaya().setText(mySaldo.toString());
+            if (view.getTfInputSaldo().getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Silahkan isi terlebih dahulu saldo anda");
+            } else {
+                model.updateSaldo(customer.getNoktp(), mySaldo + parseLong(view.getTfInputSaldo().getText()));
+                refreshSaldo();
+            }
+        } else if (pilih.equals(view.getBtnSave())) {
+            /*
+            String noktp, String username, String password, String nama,  String alamat, int umur, String jenisKelamin, String noTelepon
+            */
+            String jenisKelamin;
+            if (view.getRbtnLaki().isSelected()) {
+                jenisKelamin = "L";
+            } else {
+                jenisKelamin = "P";
+            }
+            
+            Customer custEdit = new Customer(
+                   view.getTfNoKTP().getText(),
+                    view.getTfUsername().getText(),
+                    view.getTfPassword().getText(),
+                    view.getTfNama().getText(),
+                    view.getTfAlamat().getText(),
+                    parseInt(view.getTfUmur().getText()),
+                    jenisKelamin,
+                    view.getTfNoTelepon().getText()
+            );
+            
+            model.updateCustumer(customer);
+            
+        } else if (pilih.equals(view.getBtnLogOut())) {
+            new ControllerLogin();
+            view.dispose();
         }
     }
 
+    public void refreshSaldo() {
+        Long mySaldo = model.getSaldo(customer.getNoktp());
+        view.getLblSaldoSaya().setText(mySaldo.toString());
+    }
     String idPesan;
-
     @Override
     public void mouseClicked(MouseEvent e) {
         Object pilih = e.getSource();
@@ -121,7 +157,26 @@ public class ControllerCustomer implements ActionListener, MouseListener {
         view.getLbl8JenisPesawat().setText(listTiket.get(idx).getJenisPesawat());
         view.getLbl9Seat().setText(listTiket.get(idx).getSeat());
     }
-
+    
+    public void setAllProfile() {
+       view.getTfNoKTP().setText(customer.getNoktp());
+       view.getTfUsername().setText(customer.getUsername());
+       view.getTfPassword().setText(customer.getPassword());
+       view.getTfAlamat().setText(customer.getAlamat());
+       view.getTfNama().setText(customer.getNama());
+       view.getTfNoTelepon().setText(customer.getNoTelepon());
+       view.getTfUmur().setText(Integer.toString(customer.getUmur()));
+       
+       //radio button
+       String jenisKelamin = customer.getJenisKelamin();
+       
+       if(jenisKelamin.equals("L"))
+           view.getRbtnLaki().setSelected(true);
+       else
+           view.getRbtnPerem().setSelected(true);
+    
+    }
+     
     @Override
     public void mousePressed(MouseEvent e) {
     }

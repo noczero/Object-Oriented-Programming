@@ -293,6 +293,9 @@ public class ControllerMaskapai implements ActionListener, MouseListener {
                 model.deleteJadwal(parseInt(view.getTfIdJadwal().getText()));
                 refreshJadwalTabel();
             }
+        } else if (pilih.equals(view.getBtnLogOut())){
+            new ControllerLogin();
+            view.dispose();
         }
     }
     
