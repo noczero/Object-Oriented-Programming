@@ -179,8 +179,8 @@ public class ControllerAdmin implements ActionListener, MouseListener {
             }
         } else if (pilih.equals(view.getBtnUpdateKonfirmasi())) {
             // update button konfirmasi
-             if (view.getTfIdPesan().getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "Silahkan pilih transaksi terlebih dahulu pada tabel transaksi");
+            if (view.getTfIdPesan().getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Silahkan pilih Transaksi terlebih dahulu pada tabel Transaksi");
             } else {
                 KonfirmasiTransaksi tk = new KonfirmasiTransaksi(
                         parseInt(view.getTfIdPesan().getText()),
@@ -194,9 +194,20 @@ public class ControllerAdmin implements ActionListener, MouseListener {
                 model.updateKonfirmasiTransaksi(tk);
                 refreshTableKonTransaksi();
             }
-            
+
         } else if (pilih.equals(view.getBtnDeleteKonfirmasi())) {
             // delete button konfrimasi 
+            if (view.getTfIdPesan().getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Silahkan pilih Transaksi terlebih dahulu pada tabel Transaksi");
+            } else {
+                model.deleteKonfirmasiTransaksi(view.getTfIdPesan().getText());
+                refreshTableKonTransaksi();
+            }
+
+        } else if (pilih.equals(view.getBtnLogOut())) {
+            // logout button
+            new ControllerLogin();
+            view.dispose();
         }
 
     }

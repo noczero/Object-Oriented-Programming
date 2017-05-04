@@ -37,7 +37,7 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         jLabel4 = new javax.swing.JLabel();
         lblAdmin = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        btnLogOut = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -108,10 +108,10 @@ public class AdminDashboard extends javax.swing.JFrame {
         lblAdmin.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblAdmin.setText("Admin");
 
-        jButton3.setText("Log Out");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnLogOut.setText("Log Out");
+        btnLogOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnLogOutActionPerformed(evt);
             }
         });
 
@@ -503,7 +503,7 @@ public class AdminDashboard extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3)))
+                        .addComponent(btnLogOut)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -512,7 +512,7 @@ public class AdminDashboard extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAdmin)
-                    .addComponent(jButton3)
+                    .addComponent(btnLogOut)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTabbedPane1)
@@ -522,9 +522,9 @@ public class AdminDashboard extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnLogOutActionPerformed
 
     private void tfMasUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfMasUsernameActionPerformed
         // TODO add your handling code here:
@@ -729,10 +729,10 @@ public class AdminDashboard extends javax.swing.JFrame {
         return tfTransNoKTP;
     }
 
- 
-    
-    
-    
+    public JButton getBtnLogOut() {
+        return btnLogOut;
+    }
+
     // Event Handler
     public void addActionListener(ActionListener al){
         btnUpdateCustomer.addActionListener(al);
@@ -744,6 +744,8 @@ public class AdminDashboard extends javax.swing.JFrame {
         // Konfrimasi Transaksi
         btnUpdateKonfirmasi.addActionListener(al);
         btnDeleteKonfirmasi.addActionListener(al);
+        // Log out
+        btnLogOut.addActionListener(al);
     } 
     
     // Mouse Event
@@ -759,10 +761,10 @@ public class AdminDashboard extends javax.swing.JFrame {
     private javax.swing.JButton btnDeleteKonfirmasi;
     private javax.swing.JButton btnDeleteMaskapai;
     private javax.swing.JButton btnInsertMaskapai;
+    private javax.swing.JButton btnLogOut;
     private javax.swing.JButton btnUpdateCustomer;
     private javax.swing.JButton btnUpdateKonfirmasi;
     private javax.swing.JButton btnUpdateMaskapai;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

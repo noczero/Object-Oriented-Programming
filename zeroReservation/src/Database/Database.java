@@ -12,6 +12,7 @@ import Model.DetilPesan;
 import Model.Jadwal;
 import Model.KonfirmasiTransaksi;
 import Model.Maskapai;
+import Model.Penerbangan;
 import Model.Pesanan;
 import java.sql.Connection;
 import java.sql.Date;
@@ -530,6 +531,54 @@ public class Database {
         }
 
         return maskapai;
+    }
+
+    // CRUD Penerbangan
+    public ArrayList<Penerbangan> getAllPenerbangan() {
+        PreparedStatement ps = null;
+        String selectQuery = "SELECT * FROM `r_penerbangan`";
+        ResultSet result = null;
+        ArrayList<Penerbangan> listPenerbangan = new ArrayList();
+        
+        try {
+            ps = connection.prepareStatement(selectQuery);
+            result = ps.executeQuery();
+            
+            while(result.next()){
+                Penerbangan penerbangan = new Penerbangan(result.getInt(1),result.getInt(2),result.getString(3), result.getString(4), result.getString(5), result.getString(6), result.getLong(7));
+                listPenerbangan.add(penerbangan);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return listPenerbangan;
+    }
+
+    public void insertPenerbangan(Penerbangan penerbangan){
+        PreparedStatement ps = null;
+        String insertQuery = "INSERT INTO `r_penerbangan`(`id_jadwal`, `id_pesawat`, `id_bandara`, `tujuan`, `asal`, `harga`) VALUES (?,?,?,?,?,?)";
+    
+        try {
+            ps = connection.prepareStatement(insertQuery);
+            ps.setInt(1, penerbangan.getIdJadwal());
+            ps.setString(1, penerbangan.getIdPesawat());
+            ps.setString(3, penerbangan.getIdBandara());
+            ps.setString(4, penerbangan.getTujuan());
+            ps.setString(5, penerbangan.getAsal());
+            ps.setLong(6, penerbangan.getHarga());
+            
+            ps.executeUpdate();
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+    
+    public void updatePenerbangan(Penerbangan penerbangan) {
+    
+    }
+    public void deletePenerbangan(String id) {
+
     }
 
 }

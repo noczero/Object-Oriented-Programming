@@ -88,15 +88,14 @@ public class Application {
     public void deleteMaskapai(String id) {
         connection.deleteMaskapai(id);
     }
-    
-    //Konfirmasi Transaksi CRUD
 
+    //Konfirmasi Transaksi CRUD
     public ArrayList<KonfirmasiTransaksi> getKonfirmasiTransaksi() {
         return connection.getKonfirmasiTransaksi();
     }
 
     public void updateKonfirmasiTransaksi(KonfirmasiTransaksi transaksi) {
-        Pesanan pesanan = new Pesanan(transaksi.getIdPesan(),transaksi.getNoSeat(),transaksi.getStatus(), transaksi.getKodeBooking());
+        Pesanan pesanan = new Pesanan(transaksi.getIdPesan(), transaksi.getNoSeat(), transaksi.getStatus(), transaksi.getKodeBooking());
         connection.updatePesanan(pesanan);
     }
 
@@ -104,5 +103,21 @@ public class Application {
         connection.deleteMaskapai(id);
     }
 
+    //Penerbangan CRUD
+    public ArrayList<Penerbangan> getPenerbangan() {
+        return connection.getAllPenerbangan();
+    }
+
+    public void insertPenerbangan(Penerbangan penerbangan){
+        connection.insertPenerbangan(penerbangan);
+    }
+    
+    public void updatePenerbangan(Penerbangan penerbangan) {
+        connection.updatePenerbangan(penerbangan);
+    }
+
+    public void deletePenerbangan(String id) {
+        connection.deletePenerbangan(id);
+    }
 
 }
