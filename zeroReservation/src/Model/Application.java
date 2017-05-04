@@ -174,5 +174,18 @@ public class Application {
     public void deleteJadwal(Integer id) {
         connection.deleteJadwal(id);
     }
+
+    public ArrayList<Tiket> getTiket(String NoKTP) {
+        return connection.getAllTiket(NoKTP);
+    }
+
+    //Saldo
+    public void updateSaldo(String noKTP , Long Saldo) {
+        connection.updateSaldo(noKTP ,Saldo);
+    }
+
+    public Long getSaldo(String noKTP) {
+        return connection.getSaldo(noKTP);
+    }
     
 }

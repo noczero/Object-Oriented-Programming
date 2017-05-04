@@ -291,6 +291,7 @@ public class ControllerMaskapai implements ActionListener, MouseListener {
                 JOptionPane.showMessageDialog(view, "Silahkan Pilih Jadwal pada tabel Jadwal");
             } else {
                 model.deleteJadwal(parseInt(view.getTfIdJadwal().getText()));
+                refreshJadwalTabel();
             }
         }
     }
@@ -346,7 +347,6 @@ public class ControllerMaskapai implements ActionListener, MouseListener {
             view.getTfWaktuBerangkat().setText(tModel.getValueAt(row, 1).toString());
             view.getTfWaktuTiba().setText(tModel.getValueAt(row, 2).toString());
             view.setDateJadwal(tModel.getValueAt(row, 3).toString());
-
         }
     }
 

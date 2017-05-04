@@ -15,6 +15,7 @@ import Model.Maskapai;
 import Model.Penerbangan;
 import Model.Pesanan;
 import Model.Pesawat;
+import Model.Tiket;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -682,9 +683,9 @@ public class Database {
             ex.printStackTrace();
         }
     }
-    
-     public ArrayList<Penerbangan> selectionPenerbangan(String idMaskapai) {
-         //get list penerbangan where id_pesawat = id Maskapai
+
+    public ArrayList<Penerbangan> selectionPenerbangan(String idMaskapai) {
+        //get list penerbangan where id_pesawat = id Maskapai
         PreparedStatement ps = null;
         String selectQuery = "SELECT * FROM `r_penerbangan` JOIN `pesawat` USING (`id_pesawat`) WHERE `id_maskapai` = ?";
         ResultSet result = null;
@@ -697,12 +698,12 @@ public class Database {
 
             while (result.next()) {
                 Penerbangan penerbangan = new Penerbangan(
-                        result.getInt("id_penerbangan"), 
-                        result.getInt("id_jadwal"), 
-                        result.getString("id_pesawat"), 
-                        result.getString("id_bandara"), 
-                        result.getString("tujuan"), 
-                        result.getString("asal"), 
+                        result.getInt("id_penerbangan"),
+                        result.getInt("id_jadwal"),
+                        result.getString("id_pesawat"),
+                        result.getString("id_bandara"),
+                        result.getString("tujuan"),
+                        result.getString("asal"),
                         result.getLong("harga")
                 );
                 listPenerbangan.add(penerbangan);
@@ -713,9 +714,8 @@ public class Database {
 
         return listPenerbangan;
     }
-    
-    // -- end of CRUD penerbangan --
 
+    // -- end of CRUD penerbangan --
     // CRUD Pesawat
     public ArrayList<Pesawat> getAllPesawat(String idMaskapai) {
         PreparedStatement ps = null;
@@ -793,6 +793,73 @@ public class Database {
     }
     // -- end of CRUD Pesawat--
 
-    
+    // get info ticket
+    public ArrayList<Tiket> getAllTiket(String noKTP) {
+        PreparedStatement ps = null;
+        String selectQuery = "SELECT * FROM customer JOIN pesanan USING (no_ktp) JOIN detilpesan USING (id_pesan) JOIN r_penerbangan USING (id_penerbangan) JOIN jadwal USING (id_jadwal) JOIN pesawat USING (id_pesawat) WHERE `no_ktp` = ?";
+        ResultSet result = null;
+        ArrayList<Tiket> listTiket = new ArrayList();
+
+        try {
+            ps = connection.prepareStatement(selectQuery);
+            ps.setString(1, noKTP);
+            result = ps.executeQuery();
+            while (result.next()) {
+                Tiket tiket = new Tiket(
+                        result.getString("kode_booking"), 
+                        result.getString("nama"),
+                        result.getString("tujuan"),
+                        result.getString("asal"), 
+                        result.getDate("tgl_penerbangan"), 
+                        result.getString("waktu_brkt"), 
+                        result.getString("waktu_tiba"),
+                        result.getString("id_pesawat"),
+                        result.getString("tipe"),
+                        result.getString("no_seat"),
+                        result.getString("id_pesan")
+                );
+                tiket.setStatus(result.getString("status"));
+                listTiket.add(tiket);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return listTiket;
+    }
+
+    public void updateSaldo(String noKTP, Long saldo) {
+        PreparedStatement ps = null;
+        String updateQuery = "UPDATE `customer` SET `saldo`=? WHERE no_ktp = ? ";
+        
+        try {
+            ps = connection.prepareStatement(updateQuery);
+            ps.setLong(1, saldo);
+            ps.setString(2, noKTP);
+            
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+         
+    }
+
+    public Long getSaldo(String noKTP) {
+        PreparedStatement ps = null;
+        String updateQuery = "SELECT `saldo` FROM customer WHERE no_ktp = ? ";
+        ResultSet rs = null;
+        try {
+            ps = connection.prepareStatement(updateQuery);
+            ps.setString(1, noKTP);
+            
+            rs = ps.executeQuery();
+            
+            while (rs.next()) {
+                return rs.getLong(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 }

@@ -56,6 +56,8 @@ public class ControllerLogin implements ActionListener {
                     // invoke controller customer dashboard
                     Customer customer = model.cekLoginCustomer(username, password);
                     
+                    new ControllerCustomer(customer);
+                    view.dispose();
 
                 } else if (model.cekLoginMaskapai(view.getTfUsername().getText(), view.getTfPassword().getText()) != null) {
                     // invoke controller maskapai dashboard
