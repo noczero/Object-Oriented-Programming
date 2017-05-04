@@ -11,8 +11,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import static java.lang.Integer.parseInt;
+import static java.lang.Long.parseLong;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -22,7 +26,7 @@ public class ControllerMaskapai implements ActionListener, MouseListener {
 
     private Application model = new Application();
     private MaskapaiDashboard view;
-
+    private Maskapai maskapai;
     // create array list
     ArrayList<Pesawat> listPesawat = new ArrayList();
     ArrayList<Bandara> listBandara = new ArrayList();
@@ -36,7 +40,7 @@ public class ControllerMaskapai implements ActionListener, MouseListener {
         view.addActionListener(this);
 
         view.getLblNamaMaskapai().setText(maskapai.getNama());
-
+        this.maskapai = maskapai; //get info maskapai idMaskapai
         // Display all table
         showPenerbanganTabel();
         showBandaraTabel();
@@ -47,10 +51,10 @@ public class ControllerMaskapai implements ActionListener, MouseListener {
     //get penerbangan data and display to table
     public void showPenerbanganTabel() {
         // invoke the model
-        this.listPenerbangan = model.getPenerbangan();
+        this.listPenerbangan = model.selectionPenerbangan(maskapai.getIdMaskapai()); // one maskapai one jadwal
         DefaultTableModel tmodel = (DefaultTableModel) view.getTblPenerbangan().getModel();
         for (Penerbangan pecah : listPenerbangan) {
-            Object[] row = {pecah.getIdPenerbangan(),
+            Object[] row = {
                 pecah.getIdPenerbangan(),
                 pecah.getIdJadwal(),
                 pecah.getIdPesawat(),
@@ -66,30 +70,199 @@ public class ControllerMaskapai implements ActionListener, MouseListener {
     // get bandara and display to tabel
     public void showBandaraTabel() {
         // invoke the model
-
+        this.listBandara = model.getBandara();
+        DefaultTableModel tmodel = (DefaultTableModel) view.getTblBandara().getModel();
+        for (Bandara pecah : listBandara) {
+            Object[] row = {
+                pecah.getIdBandara(),
+                pecah.getNama(),
+                pecah.getLatitude(),
+                pecah.getLongitude(),
+                pecah.getKota(),
+                pecah.getNegara()
+            };
+            tmodel.addRow(row);
+        }
     }
 
     // get pesawat data and display to tabel 
     public void showPesawatTabel() {
         // invoke the model
-
+        this.listPesawat = model.getPesawat(maskapai.getIdMaskapai());
+        DefaultTableModel tmodel = (DefaultTableModel) view.getTblPesawat().getModel();
+        DefaultTableModel tmodel2 = (DefaultTableModel) view.getTblPesawat2().getModel();
+        for (Pesawat pecah : listPesawat) {
+            Object[] row = {
+                pecah.getIdPesawat(),
+                pecah.getIdMaskapai(),
+                pecah.getKeterangan(),
+                pecah.getRute(),
+                pecah.getJumlahSeat(),
+                pecah.getTipe()
+            };
+            tmodel.addRow(row);
+            tmodel2.addRow(row);
+        }
     }
 
     // get jadwal data and display to tabel
     public void showJadwalTabel() {
         // invoke the model
+        this.listJadwal = model.getJadwal();
+        DefaultTableModel tmodel = (DefaultTableModel) view.getTblJadwal().getModel();
+        DefaultTableModel tmodel2 = (DefaultTableModel) view.getTblJadwal2().getModel();
+        for (Jadwal pecah : listJadwal) {
+            Object[] row = {
+                pecah.getIdJadwal(),
+                pecah.getWaktuBerangkat(),
+                pecah.getWaktuTiba(),
+                pecah.getTglPenerbangan()
+            };
+            tmodel.addRow(row);
+            tmodel2.addRow(row);
+        }
 
+    }
+
+    // refresh penerbangan tabel
+    public void refreshPenerbanganTabel() {
+        listPenerbangan.clear(); //clear the array
+        DefaultTableModel tmodel = (DefaultTableModel) view.getTblPenerbangan().getModel(); //get table
+        tmodel.setRowCount(0); //set to zero
+        showPenerbanganTabel(); //display again from DB
+    }
+    
+    // refresh penerbangan tabel
+    public void refreshJadwalTabel() {
+        listJadwal.clear(); //clear the array
+        DefaultTableModel tmodel = (DefaultTableModel) view.getTblJadwal().getModel(); //get table
+        DefaultTableModel tmodel2 = (DefaultTableModel) view.getTblJadwal2().getModel(); //get table
+        tmodel.setRowCount(0); //set to zero
+        tmodel2.setRowCount(0); //set to zero
+        showJadwalTabel(); //display again from DB
+    }
+    
+    // refresh penerbangan tabel
+    public void refreshPesawatTabel() {
+        listPesawat.clear(); //clear the array
+        DefaultTableModel tmodel = (DefaultTableModel) view.getTblPesawat().getModel(); //get table
+        DefaultTableModel tmodel2 = (DefaultTableModel) view.getTblPesawat2().getModel(); //get table
+        tmodel.setRowCount(0); //set to zero
+        tmodel2.setRowCount(0); //set to zero
+        showPenerbanganTabel(); //display again from DB
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         // listen for button event
-    }
+        Object pilih = e.getSource();
 
+        if (pilih.equals(view.getBtnInsertPenerbangan())) {
+            // insert Button
+            // cek blank idjadwal , idbandara dan pesawat
+            if (view.getTfidJadwal().getText().equals("") || view.getTfKodeBandara().getText().equals("") || view.getTfKodePesawat().getText().equals("")) {
+                if (view.getTfidJadwal().getText().equals("")) {
+                    JOptionPane.showMessageDialog(null, "Silahkan pilih jadwal terlebih dahulu pada tabel jadwal");
+                }
+
+                if (view.getTfKodeBandara().getText().equals("")) {
+                    JOptionPane.showMessageDialog(null, "Silahkan pilih bandara terlebih dahulu pada tabel bandara");
+                }
+
+                if (view.getTfKodePesawat().getText().equals("")) {
+                    JOptionPane.showMessageDialog(null, "Silahkan pilih pesawat terlebih dahulu pada tabel pesawat");
+                }
+            } else {
+                Penerbangan penerbangan = new Penerbangan(
+                        parseInt(view.getTfidJadwal().getText()),
+                        view.getTfKodePesawat().getText(),
+                        view.getTfKodeBandara().getText(),
+                        view.getTfTujuan().getText(),
+                        view.getTfAsal().getText(),
+                        parseLong(view.getTfHarga().getText())
+                );
+
+                model.insertPenerbangan(penerbangan);
+                refreshPenerbanganTabel();
+            }
+        } else if (pilih.equals(view.getBtnUpdatePenerbangan())) {
+            //Update
+            // cek blank idJadwal
+            if (view.getTfidJadwal().getText().equals("")) {
+                JOptionPane.showMessageDialog(view, "Silahkan pilih Jadwal Penerbangan dahulu pada tabel Jadwal Penerbangan");
+            } else {
+                Penerbangan penerbangan = new Penerbangan(
+                        parseInt(view.getTfidJadwal().getText()),
+                        view.getTfKodePesawat().getText(),
+                        view.getTfKodeBandara().getText(),
+                        view.getTfTujuan().getText(),
+                        view.getTfAsal().getText(),
+                        parseLong(view.getTfHarga().getText())
+                );
+                
+                penerbangan.setIdPenerbangan(idPenerbangan);
+                model.updatePenerbangan(penerbangan);
+                refreshPenerbanganTabel();
+
+            }
+        } else if (pilih.equals(view.getBtnDeletePenerbangan())) {
+            //Delete
+            if (view.getTfidJadwal().getText().equals("")) {
+                JOptionPane.showMessageDialog(view, "Silahkan pilih Jadwal Penerbangan dahulu pada tabel Jadwal Penerbangan");
+            } else {
+                model.deletePenerbangan(idPenerbangan);
+                refreshPenerbanganTabel();
+            }
+        // Kelola Pesawat
+        } else if (pilih.equals(view.getBtnDeletePenerbangan())) {
+            
+        } else if (pilih.equals(view.getBtnDeletePenerbangan())) {
+            
+        } else if (pilih.equals(view.getBtnDeletePenerbangan())) {
+            
+       // Kelola Jadwal     
+        } else if (pilih.equals(view.getBtnDeletePenerbangan())) {
+            
+        } else if (pilih.equals(view.getBtnDeletePenerbangan())) {
+            
+        } else if (pilih.equals(view.getBtnDeletePenerbangan())) {
+            
+        }
+    }
+    
+    private int idPenerbangan;
     @Override
     public void mouseClicked(MouseEvent e) {
         // handle for table event
+        Object pilih = e.getSource();
 
+        if (pilih.equals(view.getTblPenerbangan())) {
+            int row = view.getTblPenerbangan().getSelectedRow();
+            TableModel tModel = view.getTblPenerbangan().getModel();
+            //set the value of every text field in view
+            view.getTfidJadwal().setText(tModel.getValueAt(row, 1).toString());
+            view.getTfKodePesawat().setText(tModel.getValueAt(row, 2).toString());
+            view.getTfKodeBandara().setText(tModel.getValueAt(row, 3).toString());
+            view.getTfTujuan().setText(tModel.getValueAt(row, 4).toString());
+            view.getTfAsal().setText(tModel.getValueAt(row, 5).toString());
+            view.getTfHarga().setText(tModel.getValueAt(row, 6).toString());
+            
+            idPenerbangan = parseInt(tModel.getValueAt(row, 0).toString()); //get id_penerbangan from tabel, use in updatePenerbangan.
+        } else if (pilih.equals(view.getTblPesawat())) {
+            int row = view.getTblPesawat().getSelectedRow();
+            TableModel tModel = view.getTblPesawat().getModel();
+            view.getTfKodePesawat().setText(tModel.getValueAt(row, 0).toString());
+
+        } else if (pilih.equals(view.getTblBandara())) {
+            int row = view.getTblBandara().getSelectedRow();
+            TableModel tModel = view.getTblBandara().getModel();
+            view.getTfKodeBandara().setText(tModel.getValueAt(row, 0).toString());
+
+        } else if (pilih.equals(view.getTblJadwal())) {
+            int row = view.getTblJadwal().getSelectedRow();
+            TableModel tModel = view.getTblJadwal().getModel();
+            view.getTfidJadwal().setText(tModel.getValueAt(row, 0).toString());
+        }
     }
 
     @Override

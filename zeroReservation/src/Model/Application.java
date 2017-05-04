@@ -108,6 +108,9 @@ public class Application {
         return connection.getAllPenerbangan();
     }
 
+    public ArrayList<Penerbangan> selectionPenerbangan(String idMaskapai){
+        return connection.selectionPenerbangan(idMaskapai);
+    }
     public void insertPenerbangan(Penerbangan penerbangan) {
         connection.insertPenerbangan(penerbangan);
     }
@@ -116,9 +119,10 @@ public class Application {
         connection.updatePenerbangan(penerbangan);
     }
 
-    public void deletePenerbangan(String id) {
+    public void deletePenerbangan(Integer id) {
         connection.deletePenerbangan(id);
     }
+    
 
     //Bandara CRUD
     public ArrayList<Bandara> getBandara() {
@@ -138,8 +142,8 @@ public class Application {
     }
 
     //Pesawat CRUD
-    public ArrayList<Pesawat> getPesawat() {
-        return connection.getAllPesawat();
+    public ArrayList<Pesawat> getPesawat(String idMaskapai) {
+        return connection.getAllPesawat(idMaskapai);
     }
 
     public void insertPesawat(Pesawat pesawat) {
@@ -170,4 +174,5 @@ public class Application {
     public void deleteJadwal(String id) {
         connection.deleteJadwal(id);
     }
+    
 }

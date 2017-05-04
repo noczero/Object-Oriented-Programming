@@ -54,9 +54,15 @@ public class ControllerLogin implements ActionListener {
                     view.dispose();
                 } else if (model.cekLoginCustomer(view.getTfUsername().getText(), view.getTfPassword().getText()) != null) {
                     // invoke controller customer dashboard
+                    Customer customer = model.cekLoginCustomer(username, password);
+                    
 
                 } else if (model.cekLoginMaskapai(view.getTfUsername().getText(), view.getTfPassword().getText()) != null) {
                     // invoke controller maskapai dashboard
+                    Maskapai maskapai = model.cekLoginMaskapai(username, password);
+                
+                    new ControllerMaskapai(maskapai);
+                    view.dispose();
                 } else {
                     JOptionPane.showMessageDialog(null, "Username atau password salah");
 

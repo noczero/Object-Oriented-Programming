@@ -669,30 +669,63 @@ public class Database {
         }
     }
 
-    public void deletePenerbangan(String id) {
+    public void deletePenerbangan(Integer id) {
         // id : idpenerbangan
         PreparedStatement ps = null;
 
         String deleteString = "DELETE FROM `r_penerbangan` WHERE `id_penerbangan` = ?";
         try {
             ps = connection.prepareStatement(deleteString);
-            ps.setString(1, id);
+            ps.setInt(1, id);
             ps.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
     }
+    
+     public ArrayList<Penerbangan> selectionPenerbangan(String idMaskapai) {
+         //get list penerbangan where id_pesawat = id Maskapai
+        PreparedStatement ps = null;
+        String selectQuery = "SELECT * FROM `r_penerbangan` JOIN `pesawat` USING (`id_pesawat`) WHERE `id_maskapai` = ?";
+        ResultSet result = null;
+        ArrayList<Penerbangan> listPenerbangan = new ArrayList();
+
+        try {
+            ps = connection.prepareStatement(selectQuery);
+            ps.setString(1, idMaskapai);
+            result = ps.executeQuery();
+
+            while (result.next()) {
+                Penerbangan penerbangan = new Penerbangan(
+                        result.getInt("id_penerbangan"), 
+                        result.getInt("id_jadwal"), 
+                        result.getString("id_pesawat"), 
+                        result.getString("id_bandara"), 
+                        result.getString("tujuan"), 
+                        result.getString("asal"), 
+                        result.getLong("harga")
+                );
+                listPenerbangan.add(penerbangan);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listPenerbangan;
+    }
+    
     // -- end of CRUD penerbangan --
 
     // CRUD Pesawat
-    public ArrayList<Pesawat> getAllPesawat() {
+    public ArrayList<Pesawat> getAllPesawat(String idMaskapai) {
         PreparedStatement ps = null;
-        String selectQuery = "SELECT * FROM `pesawat`";
+        String selectQuery = "SELECT * FROM `pesawat` WHERE `id_maskapai` = ?";
         ResultSet result = null;
         ArrayList<Pesawat> listPesawat = new ArrayList();
 
         try {
             ps = connection.prepareStatement(selectQuery);
+            ps.setString(1, idMaskapai);
             result = ps.executeQuery();
 
             while (result.next()) {

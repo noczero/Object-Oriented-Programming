@@ -27,6 +27,17 @@ public class Penerbangan {
         this.asal = asal;
         this.harga = harga;
     }
+    
+    // insert to DB leave idPenebrangan cause Auto Increment
+    public Penerbangan(int idJadwal, String idPesawat, String idBandara, String tujuan, String asal, long harga) {
+        this.idPenerbangan = idPenerbangan;
+        this.idJadwal = idJadwal;
+        this.idPesawat = idPesawat;
+        this.idBandara = idBandara;
+        this.tujuan = tujuan;
+        this.asal = asal;
+        this.harga = harga;
+    }
 
     public int getIdPenerbangan() {
         return idPenerbangan;

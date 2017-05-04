@@ -56,7 +56,7 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         tfidJadwal = new javax.swing.JTextField();
-        tfKodePenerbangan = new javax.swing.JTextField();
+        tfKodePesawat = new javax.swing.JTextField();
         tfKodeBandara = new javax.swing.JTextField();
         tfTujuan = new javax.swing.JTextField();
         tfAsal = new javax.swing.JTextField();
@@ -69,7 +69,7 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
         tblJadwal = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jTable7 = new javax.swing.JTable();
+        tblPesawat2 = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -84,15 +84,15 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btnInsertPesawat = new javax.swing.JButton();
+        btnUpdatePesawat = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jTable8 = new javax.swing.JTable();
+        tblJadwal2 = new javax.swing.JTable();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jTextField8 = new javax.swing.JTextField();
@@ -102,7 +102,7 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Maskapai Maskapai");
+        setTitle("Maskapai Dashboard");
 
         lblNamaMaskapai.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lblNamaMaskapai.setText("Maskapai");
@@ -158,7 +158,7 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
 
         jLabel5.setText("ID Jadwal ");
 
-        jLabel6.setText("Kode Penerbangan");
+        jLabel6.setText("Kode Pesawat");
 
         jLabel7.setText("Tujuan");
 
@@ -219,7 +219,7 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
                                     .addComponent(tfHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(tfKodePenerbangan, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(tfKodePesawat, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(tfKodeBandara, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(2, 2, 2))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -243,16 +243,13 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
                                         .addComponent(jLabel1)
                                         .addGap(0, 0, Short.MAX_VALUE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(283, 283, 283)
-                                        .addComponent(jLabel11)
-                                        .addGap(204, 204, 204))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
@@ -267,7 +264,7 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(tfKodePenerbangan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tfKodePesawat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
@@ -314,7 +311,7 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Kelola Jadwal Penerbangan", jPanel1);
 
-        jTable7.setModel(new javax.swing.table.DefaultTableModel(
+        tblPesawat2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -322,7 +319,7 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
                 "Kode Pesawat", "Kode Maskapai", "Keterangan", "Rute", "Jumlah Seat", "Tipe"
             }
         ));
-        jScrollPane7.setViewportView(jTable7);
+        jScrollPane7.setViewportView(tblPesawat2);
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel12.setText("List Pesawat");
@@ -342,11 +339,11 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
 
         jLabel19.setText("Tipe");
 
-        jButton5.setText("Insert");
+        btnInsertPesawat.setText("Insert");
 
-        jButton6.setText("Delete");
+        btnUpdatePesawat.setText("Update");
 
-        jButton7.setText("Edit");
+        jButton7.setText("Delete");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -360,9 +357,9 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
                         .addGap(10, 10, 10)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(jButton5)
+                                .addComponent(btnInsertPesawat)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton6)
+                                .addComponent(btnUpdatePesawat)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton7))
                             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -381,7 +378,7 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
                                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 210, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel12)
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 589, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -423,8 +420,8 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
                             .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton5)
-                            .addComponent(jButton6)
+                            .addComponent(btnInsertPesawat)
+                            .addComponent(btnUpdatePesawat)
                             .addComponent(jButton7))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -437,7 +434,7 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
 
         jLabel21.setText("Waktu Berangkat");
 
-        jTable8.setModel(new javax.swing.table.DefaultTableModel(
+        tblJadwal2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -445,7 +442,7 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
                 "ID Jadwal", "Waktu Berangkat", "Waktu Tiba", "Tanggal Penerbangan"
             }
         ));
-        jScrollPane8.setViewportView(jTable8);
+        jScrollPane8.setViewportView(tblJadwal2);
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel22.setText("List Waktu Penerbangan");
@@ -584,8 +581,8 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
         return tfKodeBandara;
     }
 
-    public JTextField getTfKodePenerbangan() {
-        return tfKodePenerbangan;
+    public JTextField getTfKodePesawat() {
+        return tfKodePesawat;
     }
 
     public JTextField getTfTujuan() {
@@ -615,6 +612,14 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
     public JTable getTblJadwal() {
         return tblJadwal;
     }
+
+    public JTable getTblJadwal2() {
+        return tblJadwal2;
+    }
+
+    public JTable getTblPesawat2() {
+        return tblPesawat2;
+    }
     
     public void addActionListener(ActionListener al){
         // Kelola Penerbangan
@@ -633,10 +638,10 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDeletePenerbangan;
     private javax.swing.JButton btnInsertPenerbangan;
+    private javax.swing.JButton btnInsertPesawat;
     private javax.swing.JButton btnUpdatePenerbangan;
+    private javax.swing.JButton btnUpdatePesawat;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
@@ -675,8 +680,6 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable7;
-    private javax.swing.JTable jTable8;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
@@ -689,12 +692,14 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel lblNamaMaskapai;
     private javax.swing.JTable tblBandara;
     private javax.swing.JTable tblJadwal;
+    private javax.swing.JTable tblJadwal2;
     private javax.swing.JTable tblPenerbangan;
     private javax.swing.JTable tblPesawat;
+    private javax.swing.JTable tblPesawat2;
     private javax.swing.JTextField tfAsal;
     private javax.swing.JTextField tfHarga;
     private javax.swing.JTextField tfKodeBandara;
-    private javax.swing.JTextField tfKodePenerbangan;
+    private javax.swing.JTextField tfKodePesawat;
     private javax.swing.JTextField tfTujuan;
     private javax.swing.JTextField tfidJadwal;
     // End of variables declaration//GEN-END:variables
