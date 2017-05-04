@@ -30,6 +30,15 @@ public class Pesanan {
         this.kodeBooking = kodeBooking;
     }
 
+    // for konfirmasi transaksi
+    public Pesanan(int idPesan , String noSeat ,String status, String kodeBooking ) {
+        // let it blank to set another values
+        this.idPesan = idPesan;
+        this.noSeat = noSeat;
+        this.status = status;
+        this.kodeBooking = kodeBooking;
+    }
+
     public int getIdPesan() {
         return idPesan;
     }

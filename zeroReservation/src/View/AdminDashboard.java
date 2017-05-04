@@ -41,21 +41,21 @@ public class AdminDashboard extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        tblMaskapai = new javax.swing.JTable();
+        btnInsertMaskapai = new javax.swing.JButton();
+        btnUpdateMaskapai = new javax.swing.JButton();
+        btnDeleteMaskapai = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        tfKodeMaskapai = new javax.swing.JTextField();
+        tfMasUsername = new javax.swing.JTextField();
+        tfMasPassword = new javax.swing.JTextField();
+        tfMasNama = new javax.swing.JTextField();
+        tfJumPesawat = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblCustomer = new javax.swing.JTable();
@@ -82,22 +82,22 @@ public class AdminDashboard extends javax.swing.JFrame {
         tfSaldo = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
+        tblKonfirmasiTransaksi = new javax.swing.JTable();
+        tfStatus = new javax.swing.JTextField();
+        tfIdPesan = new javax.swing.JTextField();
+        tfTransNoKTP = new javax.swing.JTextField();
+        tfTransNama = new javax.swing.JTextField();
+        tfNoSeat = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jButton8 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
+        btnUpdateKonfirmasi = new javax.swing.JButton();
+        btnDeleteKonfirmasi = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
-        jTextField20 = new javax.swing.JTextField();
+        tfKodeBooking = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Admin Dashboard");
@@ -115,7 +115,7 @@ public class AdminDashboard extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblMaskapai.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -123,13 +123,13 @@ public class AdminDashboard extends javax.swing.JFrame {
                 "Kode Maskapai", "Username", "Password", "Nama Maskapai", "Jumlah Pesawat"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblMaskapai);
 
-        jButton1.setText("Insert");
+        btnInsertMaskapai.setText("Insert");
 
-        jButton2.setText("Update");
+        btnUpdateMaskapai.setText("Update");
 
-        jButton4.setText("Delete");
+        btnDeleteMaskapai.setText("Delete");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("Form Kelola Maskapai");
@@ -144,9 +144,9 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         jLabel7.setText("Jumlah Pesawat");
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        tfMasUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                tfMasUsernameActionPerformed(evt);
             }
         });
 
@@ -173,17 +173,17 @@ public class AdminDashboard extends javax.swing.JFrame {
                             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(39, 39, 39)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField4)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE))
+                            .addComponent(tfKodeMaskapai)
+                            .addComponent(tfMasUsername)
+                            .addComponent(tfMasPassword)
+                            .addComponent(tfMasNama)
+                            .addComponent(tfJumPesawat, javax.swing.GroupLayout.DEFAULT_SIZE, 199, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addComponent(btnInsertMaskapai)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)
+                        .addComponent(btnUpdateMaskapai)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton4)))
+                        .addComponent(btnDeleteMaskapai)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -196,28 +196,28 @@ public class AdminDashboard extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfKodeMaskapai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfMasUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfMasPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfMasNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton1)
-                        .addComponent(jButton2)
-                        .addComponent(jButton4))
+                        .addComponent(btnInsertMaskapai)
+                        .addComponent(btnUpdateMaskapai)
+                        .addComponent(btnDeleteMaskapai))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel7)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(tfJumPesawat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
@@ -371,7 +371,7 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Kelola Customer", jPanel2);
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        tblKonfirmasiTransaksi.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -379,11 +379,17 @@ public class AdminDashboard extends javax.swing.JFrame {
                 "ID Pesan", "No KTP", "Nama Customer", "No Seat", "Status", "Kode Booking"
             }
         ));
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(tblKonfirmasiTransaksi);
 
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        tfTransNoKTP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                tfTransNoKTPActionPerformed(evt);
+            }
+        });
+
+        tfTransNama.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfTransNamaActionPerformed(evt);
             }
         });
 
@@ -400,9 +406,9 @@ public class AdminDashboard extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel13.setText("Form Konfirmasi Transaksi");
 
-        jButton8.setText("Update");
+        btnUpdateKonfirmasi.setText("Update");
 
-        jButton11.setText("Delete");
+        btnDeleteKonfirmasi.setText("Delete");
 
         jLabel24.setText("Kode Booking");
 
@@ -427,23 +433,23 @@ public class AdminDashboard extends javax.swing.JFrame {
                             .addComponent(jLabel12))
                         .addGap(39, 39, 39)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField7)
-                            .addComponent(jTextField8)
-                            .addComponent(jTextField9)
-                            .addComponent(jTextField10)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tfIdPesan)
+                            .addComponent(tfTransNoKTP)
+                            .addComponent(tfTransNama)
+                            .addComponent(tfNoSeat)
+                            .addComponent(tfStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jButton8)
+                                .addComponent(btnUpdateKonfirmasi)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton11))
+                                .addComponent(btnDeleteKonfirmasi))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel24)
                                 .addGap(39, 39, 39)
-                                .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addComponent(tfKodeBooking, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 208, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -457,28 +463,28 @@ public class AdminDashboard extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel24)
-                        .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(tfKodeBooking, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel8)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(tfIdPesan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfTransNoKTP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfTransNama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfNoSeat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton8)
-                    .addComponent(jButton11))
+                    .addComponent(tfStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUpdateKonfirmasi)
+                    .addComponent(btnDeleteKonfirmasi))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
@@ -520,13 +526,13 @@ public class AdminDashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void tfMasUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfMasUsernameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_tfMasUsernameActionPerformed
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void tfTransNoKTPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfTransNoKTPActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_tfTransNoKTPActionPerformed
 
     private void tfUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfUsernameActionPerformed
         // TODO add your handling code here:
@@ -540,6 +546,10 @@ public class AdminDashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_tblCustomerMouseClicked
+
+    private void tfTransNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfTransNamaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfTransNamaActionPerformed
     //Getter Setter
     public JTable getTblCustomer() {
         return tblCustomer;
@@ -605,6 +615,10 @@ public class AdminDashboard extends javax.swing.JFrame {
         this.tfSaldo = tfSaldo;
     }
 
+    public JTable getTblMaskapai() {
+        return tblMaskapai;
+    }
+
     public JTextField getTfUmur() {
         return tfUmur;
     }
@@ -644,28 +658,111 @@ public class AdminDashboard extends javax.swing.JFrame {
     public void setLblAdmin(JLabel lblAdmin) {
         this.lblAdmin = lblAdmin;
     }
+    // gettersetter Maskapai
 
+    public JButton getBtnDeleteMaskapai() {
+        return btnDeleteMaskapai;
+    }
+
+    public JButton getBtnInsertMaskapai() {
+        return btnInsertMaskapai;
+    }
+
+    public JButton getBtnUpdateMaskapai() {
+        return btnUpdateMaskapai;
+    }
+
+    public JTextField getTfJumPesawat() {
+        return tfJumPesawat;
+    }
+
+    public JTextField getTfKodeMaskapai() {
+        return tfKodeMaskapai;
+    }
+
+    public JTextField getTfMasNama() {
+        return tfMasNama;
+    }
+
+    public JTextField getTfMasPassword() {
+        return tfMasPassword;
+    }
+
+    public JTextField getTfMasUsername() {
+        return tfMasUsername;
+    }
+
+    public JButton getBtnDeleteKonfirmasi() {
+        return btnDeleteKonfirmasi;
+    }
+
+    public JButton getBtnUpdateKonfirmasi() {
+        return btnUpdateKonfirmasi;
+    }
+
+    public JTable getTblKonfirmasiTransaksi() {
+        return tblKonfirmasiTransaksi;
+    }
+    
+    // Part Konfrimasi
+    public JTextField getTfIdPesan() {
+        return tfIdPesan;
+    }
+
+    public JTextField getTfKodeBooking() {
+        return tfKodeBooking;
+    }
+
+    public JTextField getTfNoSeat() {
+        return tfNoSeat;
+    }
+
+    public JTextField getTfStatus() {
+        return tfStatus;
+    }
+
+    public JTextField getTfTransNama() {
+        return tfTransNama;
+    }
+
+    public JTextField getTfTransNoKTP() {
+        return tfTransNoKTP;
+    }
+
+ 
+    
+    
+    
     // Event Handler
     public void addActionListener(ActionListener al){
         btnUpdateCustomer.addActionListener(al);
         btnDeleteCustomer.addActionListener(al);
+        //Maskapai
+        btnInsertMaskapai.addActionListener(al);
+        btnUpdateMaskapai.addActionListener(al);
+        btnDeleteMaskapai.addActionListener(al);
+        // Konfrimasi Transaksi
+        btnUpdateKonfirmasi.addActionListener(al);
+        btnDeleteKonfirmasi.addActionListener(al);
     } 
     
     // Mouse Event
     @Override
     public void addMouseListener(MouseListener me){
         tblCustomer.addMouseListener(me);
+        tblMaskapai.addMouseListener(me);
+        tblKonfirmasiTransaksi.addMouseListener(me);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDeleteCustomer;
+    private javax.swing.JButton btnDeleteKonfirmasi;
+    private javax.swing.JButton btnDeleteMaskapai;
+    private javax.swing.JButton btnInsertMaskapai;
     private javax.swing.JButton btnUpdateCustomer;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnUpdateKonfirmasi;
+    private javax.swing.JButton btnUpdateMaskapai;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -697,28 +794,28 @@ public class AdminDashboard extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lblAdmin;
     private javax.swing.JTable tblCustomer;
+    private javax.swing.JTable tblKonfirmasiTransaksi;
+    private javax.swing.JTable tblMaskapai;
     private javax.swing.JTextField tfAlamat;
+    private javax.swing.JTextField tfIdPesan;
     private javax.swing.JTextField tfJenisKelamin;
+    private javax.swing.JTextField tfJumPesawat;
+    private javax.swing.JTextField tfKodeBooking;
+    private javax.swing.JTextField tfKodeMaskapai;
+    private javax.swing.JTextField tfMasNama;
+    private javax.swing.JTextField tfMasPassword;
+    private javax.swing.JTextField tfMasUsername;
     private javax.swing.JTextField tfNamaCustomer;
     private javax.swing.JTextField tfNoKTP;
+    private javax.swing.JTextField tfNoSeat;
     private javax.swing.JTextField tfNoTelepon;
     private javax.swing.JTextField tfPassword;
     private javax.swing.JTextField tfSaldo;
+    private javax.swing.JTextField tfStatus;
+    private javax.swing.JTextField tfTransNama;
+    private javax.swing.JTextField tfTransNoKTP;
     private javax.swing.JTextField tfUmur;
     private javax.swing.JTextField tfUsername;
     // End of variables declaration//GEN-END:variables
