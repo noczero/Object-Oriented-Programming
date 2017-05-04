@@ -104,7 +104,7 @@ public class ControllerCustomer implements ActionListener, MouseListener {
                     view.getTfNoTelepon().getText()
             );
             
-            model.updateCustumer(customer);
+            model.updateCustumer(custEdit);
             
         } else if (pilih.equals(view.getBtnLogOut())) {
             new ControllerLogin();

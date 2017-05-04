@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2017 at 11:13 PM
+-- Generation Time: May 04, 2017 at 06:47 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -84,9 +84,8 @@ CREATE TABLE `customer` (
 
 INSERT INTO `customer` (`no_ktp`, `username`, `password`, `nama`, `alamat`, `umur`, `jenis_kelamin`, `no_telepon`, `saldo`) VALUES
 ('12345', 'tio', 'tio', 'Tio', 'Bandung', 20, 'L', '081233', 0),
-('1301154428', 'satrya', 'satrya', 'Satrya', 'Bandung', 20, 'L', '0822777123123', 0),
-('23', 'ad', 'asd', 'asd', 'asd', 44, 'L', '123', 0),
-('asd', 'asdas', 'asd', 'asd', 'sd', 1, 'L', '23', 0);
+('1301154428', 'satrya', 'satrya', ' Satrya Budi Pratama', 'Bandung', 20, 'L', '0822777123123', 0),
+('asd', 'asdasasd', 'asdasdsa', 'asd', 'sd', 1, 'L', '23', 0);
 
 -- --------------------------------------------------------
 
@@ -99,6 +98,15 @@ CREATE TABLE `detilpesan` (
   `id_pesan` int(11) NOT NULL,
   `id_penerbangan` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `detilpesan`
+--
+
+INSERT INTO `detilpesan` (`id_detilpesan`, `id_pesan`, `id_penerbangan`) VALUES
+(1, 1, 2),
+(5, 2, 7),
+(6, 4, 11);
 
 -- --------------------------------------------------------
 
@@ -118,7 +126,9 @@ CREATE TABLE `jadwal` (
 --
 
 INSERT INTO `jadwal` (`id_jadwal`, `waktu_brkt`, `waktu_tiba`, `tgl_penerbangan`) VALUES
-(1, '', '20:00', '2017-05-09');
+(1, '12:00', '20:00', '2017-06-21'),
+(2, '12:00', '13:00', '2017-06-15'),
+(3, '15:00', '20:00', '2017-05-05');
 
 -- --------------------------------------------------------
 
@@ -139,6 +149,7 @@ CREATE TABLE `maskapai` (
 --
 
 INSERT INTO `maskapai` (`id_maskapai`, `username`, `password`, `nama`, `jmlh_pesawat`) VALUES
+('BA', 'Baatik', '1234', 'Batik Airline', 80),
 ('GA', 'GA', '1234', 'Garuda Indonesia', 240),
 ('LA', 'LA', '1234', 'Lion Air', 123);
 
@@ -153,6 +164,13 @@ CREATE TABLE `pembayaran` (
   `tgl_bayar` date NOT NULL,
   `total_bayar` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `pembayaran`
+--
+
+INSERT INTO `pembayaran` (`id_bayar`, `tgl_bayar`, `total_bayar`) VALUES
+(1, '2017-05-04', 1000000);
 
 -- --------------------------------------------------------
 
@@ -170,6 +188,18 @@ CREATE TABLE `pesanan` (
   `status` varchar(50) NOT NULL,
   `kode_booking` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `pesanan`
+--
+
+INSERT INTO `pesanan` (`id_pesan`, `no_ktp`, `id_bayar`, `no_seat`, `total_harga`, `tanggal_pesan`, `status`, `kode_booking`) VALUES
+(1, '1301154428', 1, 'A23', 100000, '2017-05-04 05:29:33', 'Cancel', '24234'),
+(2, '1301154428', 1, 'A4', 12312, '2017-05-04 15:38:47', 'OK', 'ASDS'),
+(3, '1301154428', 1, 'A4', 12312, '2017-05-04 15:39:16', 'OK', 'ASDS'),
+(4, '1301154428', 1, 'A5', 12317, '2017-05-04 15:39:16', 'OK', 'ASDS'),
+(5, '1301154428', 1, 'A6', 12314, '2017-05-04 15:39:16', 'OK', 'ASDS'),
+(6, '1301154428', 1, 'A7', 12313, '2017-05-04 15:39:17', 'OK', 'ASDS');
 
 -- --------------------------------------------------------
 
@@ -191,7 +221,11 @@ CREATE TABLE `pesawat` (
 --
 
 INSERT INTO `pesawat` (`id_pesawat`, `id_maskapai`, `keterangan`, `rute`, `jumlah_seat`, `tipe`) VALUES
-('GA-760', 'GA', 'Ready to Fly', 'Domestik', 367, '737-200');
+('GA-760', 'GA', 'Ready to Fly', 'Domestik', 367, '737-200'),
+('GA-762', 'GA', 'Ready to Flight', 'Domestik', 367, '737-400'),
+('GA-764', 'GA', 'Ready to Flight', 'Domestikss', 3674, '737-300'),
+('JT30', 'LA', 'Ready to Flight', 'Domestik', 440, 'A330-300'),
+('JT31', 'LA', 'Ready to Flight', 'International', 440, 'A330-300');
 
 -- --------------------------------------------------------
 
@@ -208,6 +242,20 @@ CREATE TABLE `r_penerbangan` (
   `asal` varchar(255) NOT NULL,
   `harga` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `r_penerbangan`
+--
+
+INSERT INTO `r_penerbangan` (`id_penerbangan`, `id_jadwal`, `id_pesawat`, `id_bandara`, `tujuan`, `asal`, `harga`) VALUES
+(2, 1, 'GA-760', 'CGK', 'Jakarta', 'Amerika', 300000),
+(3, 1, 'GA-760', 'CGK', 'Kalkuks', 'Bandung', 699999),
+(7, 1, 'GA-760', 'CGK', 'Kalkuks', 'Bandung', 123123213),
+(8, 1, 'JT30', 'CGK', 'Makassar', 'Medan', 123434),
+(11, 1, 'JT31', 'CGK', 'Makassar', 'Medan', 123434),
+(12, 1, 'JT31', 'CGK', 'Makassar', 'Medan', 123434),
+(13, 1, 'JT31', 'CGK', 'Makassar', 'Medan', 123434),
+(14, 1, 'JT30', 'CGK', 'Makassar', 'Medan', 123434);
 
 --
 -- Indexes for dumped tables
@@ -289,27 +337,27 @@ ALTER TABLE `r_penerbangan`
 -- AUTO_INCREMENT for table `detilpesan`
 --
 ALTER TABLE `detilpesan`
-  MODIFY `id_detilpesan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_detilpesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `jadwal`
 --
 ALTER TABLE `jadwal`
-  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_jadwal` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id_bayar` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_bayar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `pesanan`
 --
 ALTER TABLE `pesanan`
-  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pesan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `r_penerbangan`
 --
 ALTER TABLE `r_penerbangan`
-  MODIFY `id_penerbangan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_penerbangan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- Constraints for dumped tables
 --
