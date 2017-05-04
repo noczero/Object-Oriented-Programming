@@ -21,10 +21,16 @@ public class Jadwal {
     private int idJadwal;
     private String waktuBerangkat;
     private String waktuTiba;
-    private String tglPenerbangan;
+    private Date tglPenerbangan;
 
-    public Jadwal(int idJadwal, String waktuBerangkat, String waktuTiba, String tglPenerbangan) {
+    public Jadwal(int idJadwal, String waktuBerangkat, String waktuTiba, Date tglPenerbangan) {
         this.idJadwal = idJadwal;
+        this.waktuBerangkat = waktuBerangkat;
+        this.waktuTiba = waktuTiba;
+        this.tglPenerbangan = tglPenerbangan;
+    }
+    
+     public Jadwal(String waktuBerangkat, String waktuTiba, Date tglPenerbangan) {
         this.waktuBerangkat = waktuBerangkat;
         this.waktuTiba = waktuTiba;
         this.tglPenerbangan = tglPenerbangan;
@@ -54,25 +60,25 @@ public class Jadwal {
         this.waktuTiba = waktuTiba;
     }
 
-    public String getTglPenerbangan() {
+    public Date getTglPenerbangan() {
         return tglPenerbangan;
     }
 
-    public void setTglPenerbangan(String tglPenerbangan) {
+    public void setTglPenerbangan(Date tglPenerbangan) {
         this.tglPenerbangan = tglPenerbangan;
     }
 
     // date format to save to SQL
-    public Date toDate() {
-        String dateString = this.tglPenerbangan;
-        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        
-        try {
-            return (Date) formatter.parse(dateString);
-        } catch (ParseException ex) {
-            Logger.getLogger(Jadwal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return null;
-    }
+//    public Date toDate() {
+//        String dateString = this.tglPenerbangan;
+//        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+//        
+//        try {
+//            return (Date) formatter.parse(dateString);
+//        } catch (ParseException ex) {
+//            Logger.getLogger(Jadwal.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        return null;
+//    }
 
 }

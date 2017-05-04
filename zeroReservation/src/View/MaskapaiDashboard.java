@@ -5,6 +5,7 @@
  */
 package View;
 
+import com.toedter.calendar.JDateChooser;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
 import javax.swing.JButton;
@@ -36,7 +37,7 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
 
         lblNamaMaskapai = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        btnLogOut = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -78,28 +79,31 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        tf1KodePeswat = new javax.swing.JTextField();
+        tf2KodeMaskapai = new javax.swing.JTextField();
+        tf3Keterangan = new javax.swing.JTextField();
+        tf4Rute = new javax.swing.JTextField();
+        tf5JumlahSeat = new javax.swing.JTextField();
+        tf6Tipe = new javax.swing.JTextField();
         btnInsertPesawat = new javax.swing.JButton();
         btnUpdatePesawat = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        btnDeletePesawat = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        tfIdJadwal = new javax.swing.JTextField();
         jScrollPane8 = new javax.swing.JScrollPane();
         tblJadwal2 = new javax.swing.JTable();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        tfWaktuTiba = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        tfWaktuBerangkat = new javax.swing.JTextField();
+        DateTanggalPenerbangan = new com.toedter.calendar.JDateChooser();
         jLabel25 = new javax.swing.JLabel();
+        btnInsertJadwal = new javax.swing.JButton();
+        btnUpdateJadwal = new javax.swing.JButton();
+        btnDeleteJadwal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Maskapai Dashboard");
@@ -110,10 +114,10 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Welcome,");
 
-        jButton3.setText("Log Out");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnLogOut.setText("Log Out");
+        btnLogOut.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnLogOutActionPerformed(evt);
             }
         });
 
@@ -343,7 +347,7 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
 
         btnUpdatePesawat.setText("Update");
 
-        jButton7.setText("Delete");
+        btnDeletePesawat.setText("Delete");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -361,7 +365,7 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(btnUpdatePesawat)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton7))
+                                .addComponent(btnDeletePesawat))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -372,12 +376,12 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
                                     .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(tf1KodePeswat, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tf2KodeMaskapai, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tf3Keterangan, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tf4Rute, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tf5JumlahSeat, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(tf6Tipe, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel12)
@@ -397,32 +401,32 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel14)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tf1KodePeswat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel15)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tf2KodeMaskapai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel16)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tf3Keterangan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel17)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tf4Rute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel18)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tf5JumlahSeat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel19)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tf6Tipe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnInsertPesawat)
                             .addComponent(btnUpdatePesawat)
-                            .addComponent(jButton7))
+                            .addComponent(btnDeletePesawat))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -432,7 +436,7 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel20.setText("Form Kelola Pesawat");
 
-        jLabel21.setText("Waktu Berangkat");
+        jLabel21.setText("ID Jadwal");
 
         tblJadwal2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -447,36 +451,52 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel22.setText("List Waktu Penerbangan");
 
-        jLabel23.setText("Waktu Tiba");
+        jLabel23.setText("Waktu Berangkat");
 
         jLabel24.setText("Waktu Tiba");
 
-        jDateChooser1.setDateFormatString("dd / MM / YYYY");
+        DateTanggalPenerbangan.setDateFormatString("yyyy-MM-dd");
 
         jLabel25.setText("Tanggal Penerbangan");
+
+        btnInsertJadwal.setText("Insert");
+
+        btnUpdateJadwal.setText("Update");
+
+        btnDeleteJadwal.setText("Delete");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel20)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                        .addContainerGap()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
-                            .addComponent(jTextField9)
-                            .addComponent(jTextField7)
-                            .addComponent(jTextField8))))
-                .addGap(98, 98, 98)
+                            .addComponent(jLabel20)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(DateTanggalPenerbangan, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
+                                    .addComponent(tfWaktuBerangkat)
+                                    .addComponent(tfIdJadwal)
+                                    .addComponent(tfWaktuTiba))))
+                        .addGap(98, 98, 98))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addComponent(btnInsertJadwal)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnUpdateJadwal)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnDeleteJadwal)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel22)
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 589, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -487,7 +507,7 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel22)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE))
@@ -496,20 +516,25 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel21)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tfIdJadwal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel23)
-                            .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(tfWaktuBerangkat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfWaktuTiba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel24))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DateTanggalPenerbangan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel25))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(53, 53, 53)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnInsertJadwal)
+                            .addComponent(btnUpdateJadwal)
+                            .addComponent(btnDeleteJadwal))
+                        .addGap(0, 180, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -527,7 +552,7 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblNamaMaskapai, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3))
+                        .addComponent(btnLogOut))
                     .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
@@ -537,7 +562,7 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNamaMaskapai)
-                    .addComponent(jButton3)
+                    .addComponent(btnLogOut)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTabbedPane1)
@@ -545,11 +570,12 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogOutActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnLogOutActionPerformed
 
     private void tfidJadwalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfidJadwalActionPerformed
         // TODO add your handling code here:
@@ -620,12 +646,96 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
     public JTable getTblPesawat2() {
         return tblPesawat2;
     }
+
+    public JButton getBtnDeletePesawat() {
+        return btnDeletePesawat;
+    }
+
+    public JButton getBtnInsertPesawat() {
+        return btnInsertPesawat;
+    }
+
+    public JButton getBtnUpdatePesawat() {
+        return btnUpdatePesawat;
+    }
+    
+    public JButton getBtnDeleteJadwal() {
+        return btnDeleteJadwal;
+    }
+
+    public JButton getBtnInsertJadwal() {
+        return btnInsertJadwal;
+    }
+
+    public JButton getBtnUpdateJadwal() {
+        return btnUpdateJadwal;
+    }
+
+    public JDateChooser getDateTanggalPenerbangan() {
+        return DateTanggalPenerbangan;
+    }
+
+    public JTextField getTf1KodePeswat() {
+        return tf1KodePeswat;
+    }
+
+    public JTextField getTf2KodeMaskapai() {
+        return tf2KodeMaskapai;
+    }
+
+    public JTextField getTf3Keterangan() {
+        return tf3Keterangan;
+    }
+
+    public JTextField getTf4Rute() {
+        return tf4Rute;
+    }
+
+    public JTextField getTf5JumlahSeat() {
+        return tf5JumlahSeat;
+    }
+
+    public JTextField getTf6Tipe() {
+        return tf6Tipe;
+    }
+
+    public JTextField getTfIdJadwal() {
+        return tfIdJadwal;
+    }
+
+    public JTextField getTfWaktuBerangkat() {
+        return tfWaktuBerangkat;
+    }
+
+    public JTextField getTfWaktuTiba() {
+        return tfWaktuTiba;
+    }
+
+    public JButton getBtnLogOut() {
+        return btnLogOut;
+    }
+    
+    public String getDateJadwal() {
+        return ((JTextField)DateTanggalPenerbangan.getDateEditor().getUiComponent()).getText();
+    }
+    
+    public void setDateJadwal(String tanggal){
+        ((JTextField)DateTanggalPenerbangan.getDateEditor().getUiComponent()).setText(tanggal);
+    }
     
     public void addActionListener(ActionListener al){
         // Kelola Penerbangan
         btnInsertPenerbangan.addActionListener(al);
         btnUpdatePenerbangan.addActionListener(al);
         btnDeletePenerbangan.addActionListener(al);
+        // Kelola Pesawat
+        btnInsertPesawat.addActionListener(al);
+        btnUpdatePesawat.addActionListener(al);
+        btnDeletePesawat.addActionListener(al);
+        // Kelola Jadwal
+        btnInsertJadwal.addActionListener(al);
+        btnUpdateJadwal.addActionListener(al);
+        btnDeleteJadwal.addActionListener(al);
     }
 
     public void addMouseListener(MouseListener ml) {
@@ -633,17 +743,25 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
         tblPesawat.addMouseListener(ml);
         tblBandara.addMouseListener(ml);
         tblJadwal.addMouseListener(ml);
+        //pane2
+        tblPesawat2.addMouseListener(ml);
+        tblJadwal2.addMouseListener(ml);
     }
 
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser DateTanggalPenerbangan;
+    private javax.swing.JButton btnDeleteJadwal;
     private javax.swing.JButton btnDeletePenerbangan;
+    private javax.swing.JButton btnDeletePesawat;
+    private javax.swing.JButton btnInsertJadwal;
     private javax.swing.JButton btnInsertPenerbangan;
     private javax.swing.JButton btnInsertPesawat;
+    private javax.swing.JButton btnLogOut;
+    private javax.swing.JButton btnUpdateJadwal;
     private javax.swing.JButton btnUpdatePenerbangan;
     private javax.swing.JButton btnUpdatePesawat;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton7;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -680,15 +798,6 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel lblNamaMaskapai;
     private javax.swing.JTable tblBandara;
     private javax.swing.JTable tblJadwal;
@@ -696,11 +805,20 @@ public class MaskapaiDashboard extends javax.swing.JFrame {
     private javax.swing.JTable tblPenerbangan;
     private javax.swing.JTable tblPesawat;
     private javax.swing.JTable tblPesawat2;
+    private javax.swing.JTextField tf1KodePeswat;
+    private javax.swing.JTextField tf2KodeMaskapai;
+    private javax.swing.JTextField tf3Keterangan;
+    private javax.swing.JTextField tf4Rute;
+    private javax.swing.JTextField tf5JumlahSeat;
+    private javax.swing.JTextField tf6Tipe;
     private javax.swing.JTextField tfAsal;
     private javax.swing.JTextField tfHarga;
+    private javax.swing.JTextField tfIdJadwal;
     private javax.swing.JTextField tfKodeBandara;
     private javax.swing.JTextField tfKodePesawat;
     private javax.swing.JTextField tfTujuan;
+    private javax.swing.JTextField tfWaktuBerangkat;
+    private javax.swing.JTextField tfWaktuTiba;
     private javax.swing.JTextField tfidJadwal;
     // End of variables declaration//GEN-END:variables
 }

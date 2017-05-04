@@ -357,7 +357,7 @@ public class Database {
             // set the values of prepared from the  index of ? , ? , ?..... ( first ? is 1)
             preparedStatement.setString(1, jadwal.getWaktuBerangkat());
             preparedStatement.setString(2, jadwal.getWaktuTiba());
-            preparedStatement.setDate(3, jadwal.toDate()); //notice this must date            
+            preparedStatement.setDate(3, jadwal.getTglPenerbangan()); //notice this must date            
 
             // execute insert SQL Statement
             preparedStatement.executeUpdate();
@@ -374,7 +374,7 @@ public class Database {
         try {
             rs = statement.executeQuery(query);
             while (rs.next()) {
-                Jadwal jadwal = new Jadwal(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4));
+                Jadwal jadwal = new Jadwal(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getDate(4));
                 listJadwal.add(jadwal);
             }
         } catch (Exception e) {
@@ -395,7 +395,7 @@ public class Database {
             // set the values of prepared from the  index of ? , ? , ?..... ( first ? is 1)
             ps.setString(1, jadwal.getWaktuBerangkat());
             ps.setString(2, jadwal.getWaktuTiba());
-            ps.setDate(3, jadwal.toDate()); //notice this must date   
+            ps.setDate(3, jadwal.getTglPenerbangan()); //notice this must date   
             ps.setInt(4, jadwal.getIdJadwal());
 
             // execute insert SQL Statement
@@ -405,14 +405,14 @@ public class Database {
         }
     }
 
-    public void deleteJadwal(String id) {
+    public void deleteJadwal(Integer id) {
         // id : idpenerbangan
         PreparedStatement ps = null;
 
         String deleteString = "DELETE FROM `jadwal` WHERE `id_jadwal` = ?";
         try {
             ps = connection.prepareStatement(deleteString);
-            ps.setString(1, id);
+            ps.setInt(1, id);
             ps.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -741,7 +741,7 @@ public class Database {
 
     public void insertPesawat(Pesawat pesawat) {
         PreparedStatement ps = null;
-        String insertQuery = "INSERT INTO `r_penerbangan` VALUES (?,?,?,?,?,?)";
+        String insertQuery = "INSERT INTO `pesawat` VALUES (?,?,?,?,?,?)";
 
         try {
             ps = connection.prepareStatement(insertQuery);

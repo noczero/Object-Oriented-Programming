@@ -171,7 +171,7 @@ public class Application {
         connection.updateJadwal(jadwal);
     }
 
-    public void deleteJadwal(String id) {
+    public void deleteJadwal(Integer id) {
         connection.deleteJadwal(id);
     }
     

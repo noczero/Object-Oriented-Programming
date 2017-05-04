@@ -13,8 +13,10 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import static java.lang.Integer.parseInt;
 import static java.lang.Long.parseLong;
+import java.sql.Date;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
@@ -38,7 +40,7 @@ public class ControllerMaskapai implements ActionListener, MouseListener {
         view.setVisible(true);
         view.addMouseListener(this);
         view.addActionListener(this);
-
+        view.getTfIdJadwal().setEditable(false);
         view.getLblNamaMaskapai().setText(maskapai.getNama());
         this.maskapai = maskapai; //get info maskapai idMaskapai
         // Display all table
@@ -131,7 +133,7 @@ public class ControllerMaskapai implements ActionListener, MouseListener {
         tmodel.setRowCount(0); //set to zero
         showPenerbanganTabel(); //display again from DB
     }
-    
+
     // refresh penerbangan tabel
     public void refreshJadwalTabel() {
         listJadwal.clear(); //clear the array
@@ -141,7 +143,7 @@ public class ControllerMaskapai implements ActionListener, MouseListener {
         tmodel2.setRowCount(0); //set to zero
         showJadwalTabel(); //display again from DB
     }
-    
+
     // refresh penerbangan tabel
     public void refreshPesawatTabel() {
         listPesawat.clear(); //clear the array
@@ -149,7 +151,7 @@ public class ControllerMaskapai implements ActionListener, MouseListener {
         DefaultTableModel tmodel2 = (DefaultTableModel) view.getTblPesawat2().getModel(); //get table
         tmodel.setRowCount(0); //set to zero
         tmodel2.setRowCount(0); //set to zero
-        showPenerbanganTabel(); //display again from DB
+        showPesawatTabel(); //display again from DB
     }
 
     @Override
@@ -199,7 +201,7 @@ public class ControllerMaskapai implements ActionListener, MouseListener {
                         view.getTfAsal().getText(),
                         parseLong(view.getTfHarga().getText())
                 );
-                
+
                 penerbangan.setIdPenerbangan(idPenerbangan);
                 model.updatePenerbangan(penerbangan);
                 refreshPenerbanganTabel();
@@ -213,24 +215,88 @@ public class ControllerMaskapai implements ActionListener, MouseListener {
                 model.deletePenerbangan(idPenerbangan);
                 refreshPenerbanganTabel();
             }
-        // Kelola Pesawat
-        } else if (pilih.equals(view.getBtnDeletePenerbangan())) {
-            
-        } else if (pilih.equals(view.getBtnDeletePenerbangan())) {
-            
-        } else if (pilih.equals(view.getBtnDeletePenerbangan())) {
-            
-       // Kelola Jadwal     
-        } else if (pilih.equals(view.getBtnDeletePenerbangan())) {
-            
-        } else if (pilih.equals(view.getBtnDeletePenerbangan())) {
-            
-        } else if (pilih.equals(view.getBtnDeletePenerbangan())) {
-            
+            // Kelola Pesawat
+        } else if (pilih.equals(view.getBtnInsertPesawat())) {
+            if (view.getTf1KodePeswat().getText().equals("")) {
+                JOptionPane.showMessageDialog(view, "Silahkan isi kode pesawat");
+            } else {
+                Pesawat pesawat = new Pesawat(
+                        view.getTf1KodePeswat().getText(),
+                        view.getTf2KodeMaskapai().getText(),
+                        view.getTf3Keterangan().getText(),
+                        view.getTf4Rute().getText(),
+                        parseInt(view.getTf5JumlahSeat().getText()),
+                        view.getTf6Tipe().getText()
+                );
+
+                model.insertPesawat(pesawat);
+                refreshPesawatTabel();
+            }
+        } else if (pilih.equals(view.getBtnUpdatePesawat())) {
+            if (view.getTf1KodePeswat().getText().equals("")) {
+                JOptionPane.showMessageDialog(view, "Silahkan Pilih Pesawat pada tabel Pesawat");
+            } else {
+                Pesawat pesawat = new Pesawat(
+                        view.getTf1KodePeswat().getText(),
+                        view.getTf2KodeMaskapai().getText(),
+                        view.getTf3Keterangan().getText(),
+                        view.getTf4Rute().getText(),
+                        parseInt(view.getTf5JumlahSeat().getText()),
+                        view.getTf6Tipe().getText()
+                );
+
+                model.updatePesawat(pesawat);
+                refreshPesawatTabel();
+            }
+        } else if (pilih.equals(view.getBtnDeletePesawat())) {
+            if (view.getTf1KodePeswat().getText().equals("")) {
+                JOptionPane.showMessageDialog(view, "Silahkan Pilih Pesawat pada tabel Pesawat");
+            } else {
+                model.deletePesawat(view.getTf1KodePeswat().getText());
+                refreshPesawatTabel();
+            }
+            // Kelola Jadwal     
+        } else if (pilih.equals(view.getBtnInsertJadwal())) {
+            java.util.Date utilStartDate = view.getDateTanggalPenerbangan().getDate();
+            java.sql.Date sqlStartDate = new java.sql.Date(utilStartDate.getTime());
+
+            Jadwal jadwal = new Jadwal(
+                    view.getTfWaktuBerangkat().getText(),
+                    view.getTfWaktuTiba().getText(),
+                    sqlStartDate
+            );
+
+            model.insertJadwal(jadwal);
+            refreshJadwalTabel();
+
+        } else if (pilih.equals(view.getBtnUpdateJadwal())) {
+            if (view.getTfIdJadwal().equals("")) {
+                JOptionPane.showMessageDialog(view, "Silahkan Pilih Jadwal pada tabel Jadwal");
+            } else {
+                java.util.Date utilStartDate = view.getDateTanggalPenerbangan().getDate();
+                java.sql.Date sqlStartDate = new java.sql.Date(utilStartDate.getTime());
+
+                Jadwal jadwal = new Jadwal(
+                        parseInt(view.getTfIdJadwal().getText()),
+                        view.getTfWaktuBerangkat().getText(),
+                        view.getTfWaktuTiba().getText(),
+                        sqlStartDate
+                );
+
+                model.updateJadwal(jadwal);
+                refreshJadwalTabel();
+            }
+        } else if (pilih.equals(view.getBtnDeleteJadwal())) {
+            if (view.getTfIdJadwal().equals("")) {
+                JOptionPane.showMessageDialog(view, "Silahkan Pilih Jadwal pada tabel Jadwal");
+            } else {
+                model.deleteJadwal(parseInt(view.getTfIdJadwal().getText()));
+            }
         }
     }
     
     private int idPenerbangan;
+
     @Override
     public void mouseClicked(MouseEvent e) {
         // handle for table event
@@ -246,7 +312,7 @@ public class ControllerMaskapai implements ActionListener, MouseListener {
             view.getTfTujuan().setText(tModel.getValueAt(row, 4).toString());
             view.getTfAsal().setText(tModel.getValueAt(row, 5).toString());
             view.getTfHarga().setText(tModel.getValueAt(row, 6).toString());
-            
+
             idPenerbangan = parseInt(tModel.getValueAt(row, 0).toString()); //get id_penerbangan from tabel, use in updatePenerbangan.
         } else if (pilih.equals(view.getTblPesawat())) {
             int row = view.getTblPesawat().getSelectedRow();
@@ -262,6 +328,25 @@ public class ControllerMaskapai implements ActionListener, MouseListener {
             int row = view.getTblJadwal().getSelectedRow();
             TableModel tModel = view.getTblJadwal().getModel();
             view.getTfidJadwal().setText(tModel.getValueAt(row, 0).toString());
+        } else if (pilih.equals(view.getTblPesawat2())) {
+            int row = view.getTblPesawat2().getSelectedRow();
+            TableModel tModel = view.getTblPesawat2().getModel();
+
+            view.getTf1KodePeswat().setText(tModel.getValueAt(row, 0).toString());
+            view.getTf2KodeMaskapai().setText(tModel.getValueAt(row, 1).toString());
+            view.getTf3Keterangan().setText(tModel.getValueAt(row, 2).toString());
+            view.getTf4Rute().setText(tModel.getValueAt(row, 3).toString());
+            view.getTf5JumlahSeat().setText(tModel.getValueAt(row, 4).toString());
+            view.getTf6Tipe().setText(tModel.getValueAt(row, 5).toString());
+        } else if (pilih.equals(view.getTblJadwal2())) {
+            int row = view.getTblJadwal2().getSelectedRow();
+            TableModel tModel = view.getTblJadwal2().getModel();
+
+            view.getTfIdJadwal().setText(tModel.getValueAt(row, 0).toString());
+            view.getTfWaktuBerangkat().setText(tModel.getValueAt(row, 1).toString());
+            view.getTfWaktuTiba().setText(tModel.getValueAt(row, 2).toString());
+            view.setDateJadwal(tModel.getValueAt(row, 3).toString());
+
         }
     }
 
