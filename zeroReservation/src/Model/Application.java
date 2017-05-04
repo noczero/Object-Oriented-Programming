@@ -108,10 +108,10 @@ public class Application {
         return connection.getAllPenerbangan();
     }
 
-    public void insertPenerbangan(Penerbangan penerbangan){
+    public void insertPenerbangan(Penerbangan penerbangan) {
         connection.insertPenerbangan(penerbangan);
     }
-    
+
     public void updatePenerbangan(Penerbangan penerbangan) {
         connection.updatePenerbangan(penerbangan);
     }
@@ -120,4 +120,54 @@ public class Application {
         connection.deletePenerbangan(id);
     }
 
+    //Bandara CRUD
+    public ArrayList<Bandara> getBandara() {
+        return connection.getAllBandara();
+    }
+
+    public void insertBandara(Bandara bandara) {
+        connection.insertBandara(bandara);
+    }
+
+    public void updateBandara(Bandara bandara) {
+        connection.updateBandara(bandara);
+    }
+
+    public void deleteBandara(String id) {
+        connection.deleteBandara(id);
+    }
+
+    //Pesawat CRUD
+    public ArrayList<Pesawat> getPesawat() {
+        return connection.getAllPesawat();
+    }
+
+    public void insertPesawat(Pesawat pesawat) {
+        connection.insertPesawat(pesawat);
+    }
+
+    public void updatePesawat(Pesawat pesawat) {
+        connection.updatePesawat(pesawat);
+    }
+
+    public void deletePesawat(String id) {
+        connection.deletePesawat(id);
+    }
+
+    // Jadwal CRUD
+    public ArrayList<Jadwal> getJadwal() {
+        return connection.getAllJadwal();
+    }
+
+    public void insertJadwal(Jadwal jadwal) {
+        connection.insertJadwal(jadwal);
+    }
+
+    public void updateJadwal(Jadwal jadwal) {
+        connection.updateJadwal(jadwal);
+    }
+
+    public void deleteJadwal(String id) {
+        connection.deleteJadwal(id);
+    }
 }

@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -46,6 +47,20 @@ public class ControllerMaskapai implements ActionListener, MouseListener {
     //get penerbangan data and display to table
     public void showPenerbanganTabel() {
         // invoke the model
+        this.listPenerbangan = model.getPenerbangan();
+        DefaultTableModel tmodel = (DefaultTableModel) view.getTblPenerbangan().getModel();
+        for (Penerbangan pecah : listPenerbangan) {
+            Object[] row = {pecah.getIdPenerbangan(),
+                pecah.getIdPenerbangan(),
+                pecah.getIdJadwal(),
+                pecah.getIdPesawat(),
+                pecah.getIdBandara(),
+                pecah.getTujuan(),
+                pecah.getAsal(),
+                pecah.getHarga()
+            };
+            tmodel.addRow(row);
+        }
     }
 
     // get bandara and display to tabel

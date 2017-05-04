@@ -14,6 +14,7 @@ import Model.KonfirmasiTransaksi;
 import Model.Maskapai;
 import Model.Penerbangan;
 import Model.Pesanan;
+import Model.Pesawat;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -216,8 +217,8 @@ public class Database {
             ex.printStackTrace();
         }
     }
-
     // -- end of maskapai --
+
     //CRUD Admin
     // insert , getAll
     public void insertAdmin(Admin admin) {
@@ -256,6 +257,7 @@ public class Database {
         }
         return listAdmin;
     }
+    // -- end crud admin --
 
     // CRUD Bandara
     // insert, getAll
@@ -300,9 +302,47 @@ public class Database {
         return listBandara;
     }
 
+    public void updateBandara(Bandara bandara) {
+        PreparedStatement ps = null;
+        String updateQuery = "UPDATE `bandara` SET `nama`= ? ,`latitude`= ? ,`longitude`= ?,`kota`= ?,`negara`= ? WHERE `id_bandara` = ?";
+
+        try {
+            // make connection of prepared Statement using ?
+            ps = connection.prepareStatement(updateQuery);
+
+            // set the values of prepared from the  index of ? , ? , ?..... ( first ? is 1)
+            ps.setString(6, bandara.getIdBandara());
+            ps.setString(1, bandara.getNama());
+            ps.setString(2, bandara.getLatitude());
+            ps.setString(3, bandara.getLongitude());
+            ps.setString(4, bandara.getKota());
+            ps.setString(5, bandara.getNegara());
+
+            // execute insert SQL Statement
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteBandara(String id) {
+        // id : idpenerbangan
+        PreparedStatement ps = null;
+
+        String deleteString = "DELETE FROM `bandara` WHERE `id_bandara` = ?";
+        try {
+            ps = connection.prepareStatement(deleteString);
+            ps.setString(1, id);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    // -- End CRUD Bandara --
     //CRUD Jadwal
     // insert , getall
-    public void insertJadwal(Jadwal jadwal) throws ParseException {
+    public void insertJadwal(Jadwal jadwal) {
         //Make Insert Query
         PreparedStatement preparedStatement = null; //use preparedstatement instead of brief query avoid sql injection
         String insertString = "INSERT INTO jadwal (`waktu_brkt`, `waktu_tiba`, `tgl_penerbangan`) VALUES (?,?,?)";
@@ -311,14 +351,13 @@ public class Database {
             preparedStatement = connection.prepareStatement(insertString);
 
             // Date
-            String dateString = jadwal.getTglPenerbangan();
-            DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-            Date myDate = (Date) formatter.parse(dateString);
-
+//            String dateString = jadwal.getTglPenerbangan();
+//            DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+//            Date myDate = (Date) formatter.parse(dateString);
             // set the values of prepared from the  index of ? , ? , ?..... ( first ? is 1)
             preparedStatement.setString(1, jadwal.getWaktuBerangkat());
             preparedStatement.setString(2, jadwal.getWaktuTiba());
-            preparedStatement.setDate(3, myDate); //notice this must date            
+            preparedStatement.setDate(3, jadwal.toDate()); //notice this must date            
 
             // execute insert SQL Statement
             preparedStatement.executeUpdate();
@@ -344,6 +383,42 @@ public class Database {
         }
         return listJadwal;
     }
+
+    public void updateJadwal(Jadwal jadwal) {
+        PreparedStatement ps = null;
+        String updateQuery = "UPDATE `jadwal` SET `waktu_brkt`= ? ,`waktu_tiba`= ? ,`tgl_penerbangan`= ?  WHERE `id_jadwal` = ? ";
+
+        try {
+            // make connection of prepared Statement using ?
+            ps = connection.prepareStatement(updateQuery);
+
+            // set the values of prepared from the  index of ? , ? , ?..... ( first ? is 1)
+            ps.setString(1, jadwal.getWaktuBerangkat());
+            ps.setString(2, jadwal.getWaktuTiba());
+            ps.setDate(3, jadwal.toDate()); //notice this must date   
+            ps.setInt(4, jadwal.getIdJadwal());
+
+            // execute insert SQL Statement
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deleteJadwal(String id) {
+        // id : idpenerbangan
+        PreparedStatement ps = null;
+
+        String deleteString = "DELETE FROM `jadwal` WHERE `id_jadwal` = ?";
+        try {
+            ps = connection.prepareStatement(deleteString);
+            ps.setString(1, id);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+    // --  End Crud Jadwal -- 
 
     //CRUD Detil Pesan
     public void insertDetilPesan(DetilPesan detilpesan) {
@@ -451,14 +526,14 @@ public class Database {
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                KonfirmasiTransaksi kt = new KonfirmasiTransaksi(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6));
+                KonfirmasiTransaksi kt = new KonfirmasiTransaksi(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6));
                 listTransaksi.add(kt);
             }
 
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        
+
         return listTransaksi;
     }
 
@@ -539,46 +614,152 @@ public class Database {
         String selectQuery = "SELECT * FROM `r_penerbangan`";
         ResultSet result = null;
         ArrayList<Penerbangan> listPenerbangan = new ArrayList();
-        
+
         try {
             ps = connection.prepareStatement(selectQuery);
             result = ps.executeQuery();
-            
-            while(result.next()){
-                Penerbangan penerbangan = new Penerbangan(result.getInt(1),result.getInt(2),result.getString(3), result.getString(4), result.getString(5), result.getString(6), result.getLong(7));
+
+            while (result.next()) {
+                Penerbangan penerbangan = new Penerbangan(result.getInt(1), result.getInt(2), result.getString(3), result.getString(4), result.getString(5), result.getString(6), result.getLong(7));
                 listPenerbangan.add(penerbangan);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        
+
         return listPenerbangan;
     }
 
-    public void insertPenerbangan(Penerbangan penerbangan){
+    public void insertPenerbangan(Penerbangan penerbangan) {
         PreparedStatement ps = null;
         String insertQuery = "INSERT INTO `r_penerbangan`(`id_jadwal`, `id_pesawat`, `id_bandara`, `tujuan`, `asal`, `harga`) VALUES (?,?,?,?,?,?)";
-    
+
         try {
             ps = connection.prepareStatement(insertQuery);
             ps.setInt(1, penerbangan.getIdJadwal());
-            ps.setString(1, penerbangan.getIdPesawat());
+            ps.setString(2, penerbangan.getIdPesawat());
             ps.setString(3, penerbangan.getIdBandara());
             ps.setString(4, penerbangan.getTujuan());
             ps.setString(5, penerbangan.getAsal());
             ps.setLong(6, penerbangan.getHarga());
-            
+
             ps.executeUpdate();
-        } catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
-    
-    public void updatePenerbangan(Penerbangan penerbangan) {
-    
-    }
-    public void deletePenerbangan(String id) {
 
+    public void updatePenerbangan(Penerbangan penerbangan) {
+        PreparedStatement ps = null;
+        String updateQuery = "UPDATE `r_penerbangan` SET `id_jadwal`=?,`id_pesawat`= ?,`id_bandara`= ?,`tujuan`= ?,`asal`= ?,`harga`= ? WHERE `id_penerbangan` = ?";
+
+        try {
+            ps = connection.prepareStatement(updateQuery);
+            ps.setInt(1, penerbangan.getIdJadwal());
+            ps.setString(2, penerbangan.getIdPesawat());
+            ps.setString(3, penerbangan.getIdBandara());
+            ps.setString(4, penerbangan.getTujuan());
+            ps.setString(5, penerbangan.getAsal());
+            ps.setLong(6, penerbangan.getHarga());
+            ps.setInt(7, penerbangan.getIdPenerbangan());
+
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
+
+    public void deletePenerbangan(String id) {
+        // id : idpenerbangan
+        PreparedStatement ps = null;
+
+        String deleteString = "DELETE FROM `r_penerbangan` WHERE `id_penerbangan` = ?";
+        try {
+            ps = connection.prepareStatement(deleteString);
+            ps.setString(1, id);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+    // -- end of CRUD penerbangan --
+
+    // CRUD Pesawat
+    public ArrayList<Pesawat> getAllPesawat() {
+        PreparedStatement ps = null;
+        String selectQuery = "SELECT * FROM `pesawat`";
+        ResultSet result = null;
+        ArrayList<Pesawat> listPesawat = new ArrayList();
+
+        try {
+            ps = connection.prepareStatement(selectQuery);
+            result = ps.executeQuery();
+
+            while (result.next()) {
+                Pesawat pesawat = new Pesawat(result.getString(1), result.getString(2), result.getString(3), result.getString(4), result.getInt(5), result.getString(6));
+                listPesawat.add(pesawat);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listPesawat;
+    }
+
+    public void insertPesawat(Pesawat pesawat) {
+        PreparedStatement ps = null;
+        String insertQuery = "INSERT INTO `r_penerbangan` VALUES (?,?,?,?,?,?)";
+
+        try {
+            ps = connection.prepareStatement(insertQuery);
+            ps.setString(1, pesawat.getIdPesawat());
+            ps.setString(2, pesawat.getIdMaskapai());
+            ps.setString(3, pesawat.getKeterangan());
+            ps.setString(4, pesawat.getRute());
+            ps.setInt(5, pesawat.getJumlahSeat());
+            ps.setString(6, pesawat.getTipe());
+
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updatePesawat(Pesawat pesawat) {
+        PreparedStatement ps = null;
+        String updateQuery = "UPDATE `pesawat` SET `id_pesawat`= ?,`id_maskapai`= ?,`keterangan`= ? , `rute`= ?,`jumlah_seat`=?,`tipe`=? WHERE `id_pesawat` = ?";
+
+        try {
+            ps = connection.prepareStatement(updateQuery);
+            ps.setString(1, pesawat.getIdPesawat());
+            ps.setString(2, pesawat.getIdMaskapai());
+            ps.setString(3, pesawat.getKeterangan());
+            ps.setString(4, pesawat.getRute());
+            ps.setInt(5, pesawat.getJumlahSeat());
+            ps.setString(6, pesawat.getTipe());
+            ps.setString(7, pesawat.getIdPesawat());
+
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void deletePesawat(String id) {
+        // id : idpenerbangan
+        PreparedStatement ps = null;
+
+        String deleteString = "DELETE FROM `pesawat` WHERE `id_pesawat` = ?";
+        try {
+            ps = connection.prepareStatement(deleteString);
+            ps.setString(1, id);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+    // -- end of CRUD Pesawat--
+
+    
 
 }

@@ -5,11 +5,19 @@
  */
 package Model;
 
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Zero-Inside
  */
 public class Jadwal {
+
     private int idJadwal;
     private String waktuBerangkat;
     private String waktuTiba;
@@ -53,6 +61,18 @@ public class Jadwal {
     public void setTglPenerbangan(String tglPenerbangan) {
         this.tglPenerbangan = tglPenerbangan;
     }
-    
-    
+
+    // date format to save to SQL
+    public Date toDate() {
+        String dateString = this.tglPenerbangan;
+        DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        
+        try {
+            return (Date) formatter.parse(dateString);
+        } catch (ParseException ex) {
+            Logger.getLogger(Jadwal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+    }
+
 }
