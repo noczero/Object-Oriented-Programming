@@ -60,24 +60,24 @@ public class CustomerDashboard extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         lbl9Seat = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
+        btnPesanPenerbangan = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tblPesanPenerbangan = new javax.swing.JTable();
         jLabel24 = new javax.swing.JLabel();
-        jLabel25_kodePesawat = new javax.swing.JLabel();
-        jLabel25_kodePesawat1 = new javax.swing.JLabel();
+        lbl2KodePesawat = new javax.swing.JLabel();
+        lbl2NamaMaskapai = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
-        jLabel25_kodePesawat2 = new javax.swing.JLabel();
+        lbl2Asal = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
-        jLabel25_kodePesawat3 = new javax.swing.JLabel();
+        lbl2Tujuan = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        jLabel25_kodePesawat4 = new javax.swing.JLabel();
-        jLabel25_kodePesawat5 = new javax.swing.JLabel();
+        lbl2Jadwal = new javax.swing.JLabel();
+        lbl2WaktuBerangkat = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
-        jLabel25_kodePesawat6 = new javax.swing.JLabel();
-        jLabel25_kodePesawat7 = new javax.swing.JLabel();
+        lbl2WaktuTIba = new javax.swing.JLabel();
+        lbl2Harga = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
@@ -278,50 +278,47 @@ public class CustomerDashboard extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Ticket", jPanel1);
 
-        jButton2.setText("Pesan Penerbangan");
+        btnPesanPenerbangan.setText("Pesan Penerbangan");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tblPesanPenerbangan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Kode Pesawat", "Nama Maskapai", "Asal", "Tujuan", "Jadwal", "Waktu Berangkat", "Waktu Tiba", "Harga"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(tblPesanPenerbangan);
 
         jLabel24.setText("Kode Pesawat");
 
-        jLabel25_kodePesawat.setText("...");
+        lbl2KodePesawat.setText("...");
 
-        jLabel25_kodePesawat1.setText("...");
+        lbl2NamaMaskapai.setText("...");
 
         jLabel25.setText("Nama Maskapai");
 
-        jLabel25_kodePesawat2.setText("...");
+        lbl2Asal.setText("...");
 
         jLabel27.setText("Asal");
 
         jLabel28.setText("Tujuan");
 
-        jLabel25_kodePesawat3.setText("...");
+        lbl2Tujuan.setText("...");
 
         jLabel26.setText("Jadwal");
 
-        jLabel25_kodePesawat4.setText("...");
+        lbl2Jadwal.setText("...");
 
-        jLabel25_kodePesawat5.setText("...");
+        lbl2WaktuBerangkat.setText("...");
 
         jLabel29.setText("Waktu Berangkat");
 
         jLabel30.setText("Waktu Tiba");
 
-        jLabel25_kodePesawat6.setText("...");
+        lbl2WaktuTIba.setText("...");
 
-        jLabel25_kodePesawat7.setText("...");
+        lbl2Harga.setText("...");
 
         jLabel31.setText("Harga");
 
@@ -340,31 +337,31 @@ public class CustomerDashboard extends javax.swing.JFrame {
                                     .addGroup(jPanel4Layout.createSequentialGroup()
                                         .addComponent(jLabel25)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jLabel25_kodePesawat1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(lbl2NamaMaskapai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addGroup(jPanel4Layout.createSequentialGroup()
                                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
                                             .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGap(18, 18, 18)
                                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel25_kodePesawat2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel25_kodePesawat3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                            .addComponent(lbl2Asal, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lbl2Tujuan, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGap(82, 82, 82))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel25_kodePesawat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbl2KodePesawat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(71, 71, 71)))
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel29)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel25_kodePesawat5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbl2WaktuBerangkat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(173, 173, 173))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(27, 27, 27)
-                                .addComponent(jLabel25_kodePesawat4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbl2Jadwal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(164, 164, 164))
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -372,12 +369,12 @@ public class CustomerDashboard extends javax.swing.JFrame {
                                     .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE))
                                 .addGap(27, 27, 27)
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel25_kodePesawat6, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel25_kodePesawat7, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lbl2WaktuTIba, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbl2Harga, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(164, 164, 164))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton2)
+                        .addComponent(btnPesanPenerbangan)
                         .addGap(26, 26, 26)))
                 .addContainerGap())
         );
@@ -391,37 +388,37 @@ public class CustomerDashboard extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel24)
-                            .addComponent(jLabel25_kodePesawat))
+                            .addComponent(lbl2KodePesawat))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel25_kodePesawat1)
+                            .addComponent(lbl2NamaMaskapai)
                             .addComponent(jLabel25))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel25_kodePesawat2)
+                            .addComponent(lbl2Asal)
                             .addComponent(jLabel27))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel28)
-                            .addComponent(jLabel25_kodePesawat3)))
+                            .addComponent(lbl2Tujuan)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel26)
-                            .addComponent(jLabel25_kodePesawat4))
+                            .addComponent(lbl2Jadwal))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel25_kodePesawat5)
+                            .addComponent(lbl2WaktuBerangkat)
                             .addComponent(jLabel29))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel25_kodePesawat6)
+                            .addComponent(lbl2WaktuTIba)
                             .addComponent(jLabel30))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel31)
-                            .addComponent(jLabel25_kodePesawat7))))
+                            .addComponent(lbl2Harga))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(btnPesanPenerbangan)
                 .addGap(26, 26, 26))
         );
 
@@ -699,6 +696,46 @@ public class CustomerDashboard extends javax.swing.JFrame {
         return lbl6WaktuTiba;
     }
 
+    public JLabel getjLabel_customerName() {
+        return jLabel_customerName;
+    }
+
+    public JLabel getLbl2Asal() {
+        return lbl2Asal;
+    }
+
+    public JLabel getLbl2Harga() {
+        return lbl2Harga;
+    }
+
+    public JLabel getLbl2Jadwal() {
+        return lbl2Jadwal;
+    }
+
+    public JLabel getLbl2KodePesawat() {
+        return lbl2KodePesawat;
+    }
+
+    public JLabel getLbl2NamaMaskapai() {
+        return lbl2NamaMaskapai;
+    }
+
+    public JLabel getLbl2Tujuan() {
+        return lbl2Tujuan;
+    }
+
+    public JLabel getLbl2WaktuBerangkat() {
+        return lbl2WaktuBerangkat;
+    }
+
+    public JLabel getLbl2WaktuTIba() {
+        return lbl2WaktuTIba;
+    }
+
+    public JTable getTblPesanPenerbangan() {
+        return tblPesanPenerbangan;
+    }
+
     public JLabel getLbl7KodePesawat() {
         return lbl7KodePesawat;
     }
@@ -755,6 +792,10 @@ public class CustomerDashboard extends javax.swing.JFrame {
         return btnLogOut;
     }
 
+    public JButton getBtnPesanPenerbangan() {
+        return btnPesanPenerbangan;
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -763,17 +804,19 @@ public class CustomerDashboard extends javax.swing.JFrame {
        btnIsiSaldo.addActionListener(al);
        btnSave.addActionListener(al);
        btnLogOut.addActionListener(al);
+       btnPesanPenerbangan.addActionListener(al);
     }
     
     public void addMouseListener(MouseListener ml){
         tblTiket.addMouseListener(ml);
+        tblPesanPenerbangan.addMouseListener(ml);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIsiSaldo;
     private javax.swing.JButton btnLogOut;
+    private javax.swing.JButton btnPesanPenerbangan;
     private javax.swing.JButton btnSave;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -791,14 +834,6 @@ public class CustomerDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel25_kodePesawat;
-    private javax.swing.JLabel jLabel25_kodePesawat1;
-    private javax.swing.JLabel jLabel25_kodePesawat2;
-    private javax.swing.JLabel jLabel25_kodePesawat3;
-    private javax.swing.JLabel jLabel25_kodePesawat4;
-    private javax.swing.JLabel jLabel25_kodePesawat5;
-    private javax.swing.JLabel jLabel25_kodePesawat6;
-    private javax.swing.JLabel jLabel25_kodePesawat7;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
@@ -821,9 +856,16 @@ public class CustomerDashboard extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JLabel lbl1KodeBooking;
+    private javax.swing.JLabel lbl2Asal;
+    private javax.swing.JLabel lbl2Harga;
+    private javax.swing.JLabel lbl2Jadwal;
+    private javax.swing.JLabel lbl2KodePesawat;
     private javax.swing.JLabel lbl2Nama;
+    private javax.swing.JLabel lbl2NamaMaskapai;
+    private javax.swing.JLabel lbl2Tujuan;
+    private javax.swing.JLabel lbl2WaktuBerangkat;
+    private javax.swing.JLabel lbl2WaktuTIba;
     private javax.swing.JLabel lbl3Rute;
     private javax.swing.JLabel lbl4Jadwal;
     private javax.swing.JLabel lbl5WaktuBerangkat;
@@ -834,6 +876,7 @@ public class CustomerDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel lblSaldoSaya;
     private javax.swing.JRadioButton rbtnLaki;
     private javax.swing.JRadioButton rbtnPerem;
+    private javax.swing.JTable tblPesanPenerbangan;
     private javax.swing.JTable tblTiket;
     private javax.swing.JTextField tfAlamat;
     private javax.swing.JTextField tfInputSaldo;

@@ -5,6 +5,8 @@
  */
 package Model;
 
+import java.sql.Date;
+
 /**
  *
  * @author Zero-Inside
@@ -17,6 +19,12 @@ public class Penerbangan {
     private String tujuan;
     private String asal;
     private long harga;
+    
+    //add to jadwal penerbangan
+    private String namaMaskapai;
+    private Date jadwal;
+    private String waktuBerangkat;
+    private String waktuTiba;
 
     public Penerbangan(int idPenerbangan, int idJadwal, String idPesawat, String idBandara, String tujuan, String asal, long harga) {
         this.idPenerbangan = idPenerbangan;
@@ -37,6 +45,10 @@ public class Penerbangan {
         this.tujuan = tujuan;
         this.asal = asal;
         this.harga = harga;
+    }
+    
+    public Penerbangan(){
+        // let it blank.
     }
 
     public int getIdPenerbangan() {
@@ -93,6 +105,38 @@ public class Penerbangan {
 
     public void setHarga(long harga) {
         this.harga = harga;
+    }
+
+    public String getNamaMaskapai() {
+        return namaMaskapai;
+    }
+
+    public void setNamaMaskapai(String namaMaskapai) {
+        this.namaMaskapai = namaMaskapai;
+    }
+
+    public Date getJadwal() {
+        return jadwal;
+    }
+
+    public void setJadwal(Date jadwal) {
+        this.jadwal = jadwal;
+    }
+
+    public String getWaktuBerangkat() {
+        return waktuBerangkat;
+    }
+
+    public void setWaktuBerangkat(String waktuBerangkat) {
+        this.waktuBerangkat = waktuBerangkat;
+    }
+
+    public String getWaktuTiba() {
+        return waktuTiba;
+    }
+
+    public void setWaktuTiba(String waktuTiba) {
+        this.waktuTiba = waktuTiba;
     }
     
     

@@ -38,6 +38,10 @@ public class Pesanan {
         this.status = status;
         this.kodeBooking = kodeBooking;
     }
+    
+    public Pesanan(){
+        
+    }
 
     public int getIdPesan() {
         return idPesan;

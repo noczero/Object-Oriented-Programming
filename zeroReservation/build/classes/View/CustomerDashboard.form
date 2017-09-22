@@ -404,7 +404,7 @@
                                           <Group type="102" attributes="0">
                                               <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="jLabel25_kodePesawat1" max="32767" attributes="0"/>
+                                              <Component id="lbl2NamaMaskapai" max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
@@ -413,8 +413,8 @@
                                               </Group>
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jLabel25_kodePesawat2" min="-2" pref="101" max="-2" attributes="0"/>
-                                                  <Component id="jLabel25_kodePesawat3" min="-2" pref="101" max="-2" attributes="0"/>
+                                                  <Component id="lbl2Asal" min="-2" pref="101" max="-2" attributes="0"/>
+                                                  <Component id="lbl2Tujuan" min="-2" pref="101" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                       </Group>
@@ -423,7 +423,7 @@
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel24" min="-2" pref="85" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jLabel25_kodePesawat" max="32767" attributes="0"/>
+                                      <Component id="lbl2KodePesawat" max="32767" attributes="0"/>
                                       <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -431,13 +431,13 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jLabel25_kodePesawat5" max="32767" attributes="0"/>
+                                      <Component id="lbl2WaktuBerangkat" max="32767" attributes="0"/>
                                       <EmptySpace min="-2" pref="173" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Component id="jLabel26" min="-2" pref="74" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                                      <Component id="jLabel25_kodePesawat4" max="32767" attributes="0"/>
+                                      <Component id="lbl2Jadwal" max="32767" attributes="0"/>
                                       <EmptySpace min="-2" pref="164" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
@@ -447,8 +447,8 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="jLabel25_kodePesawat6" min="-2" pref="101" max="-2" attributes="0"/>
-                                          <Component id="jLabel25_kodePesawat7" min="-2" pref="101" max="-2" attributes="0"/>
+                                          <Component id="lbl2WaktuTIba" min="-2" pref="101" max="-2" attributes="0"/>
+                                          <Component id="lbl2Harga" min="-2" pref="101" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="164" max="-2" attributes="0"/>
                                   </Group>
@@ -456,7 +456,7 @@
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnPesanPenerbangan" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -474,55 +474,55 @@
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel25_kodePesawat" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbl2KodePesawat" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel25_kodePesawat1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbl2NamaMaskapai" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel25_kodePesawat2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbl2Asal" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel27" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel28" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel25_kodePesawat3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbl2Tujuan" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel26" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel25_kodePesawat4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbl2Jadwal" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel25_kodePesawat5" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbl2WaktuBerangkat" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel29" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel25_kodePesawat6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbl2WaktuTIba" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel30" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel31" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel25_kodePesawat7" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbl2Harga" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                       <EmptySpace pref="44" max="32767" attributes="0"/>
-                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnPesanPenerbangan" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="jButton2">
+            <Component class="javax.swing.JButton" name="btnPesanPenerbangan">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Pesan Penerbangan"/>
               </Properties>
@@ -534,10 +534,10 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTable2">
+                <Component class="javax.swing.JTable" name="tblPesanPenerbangan">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="8" rowCount="4">
+                      <Table columnCount="8" rowCount="0">
                         <Column editable="true" title="Kode Pesawat" type="java.lang.Object"/>
                         <Column editable="true" title="Nama Maskapai" type="java.lang.Object"/>
                         <Column editable="true" title="Asal" type="java.lang.Object"/>
@@ -557,12 +557,12 @@
                 <Property name="text" type="java.lang.String" value="Kode Pesawat"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel25_kodePesawat">
+            <Component class="javax.swing.JLabel" name="lbl2KodePesawat">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel25_kodePesawat1">
+            <Component class="javax.swing.JLabel" name="lbl2NamaMaskapai">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
               </Properties>
@@ -572,7 +572,7 @@
                 <Property name="text" type="java.lang.String" value="Nama Maskapai"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel25_kodePesawat2">
+            <Component class="javax.swing.JLabel" name="lbl2Asal">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
               </Properties>
@@ -587,7 +587,7 @@
                 <Property name="text" type="java.lang.String" value="Tujuan"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel25_kodePesawat3">
+            <Component class="javax.swing.JLabel" name="lbl2Tujuan">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
               </Properties>
@@ -597,12 +597,12 @@
                 <Property name="text" type="java.lang.String" value="Jadwal"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel25_kodePesawat4">
+            <Component class="javax.swing.JLabel" name="lbl2Jadwal">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel25_kodePesawat5">
+            <Component class="javax.swing.JLabel" name="lbl2WaktuBerangkat">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
               </Properties>
@@ -617,12 +617,12 @@
                 <Property name="text" type="java.lang.String" value="Waktu Tiba"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel25_kodePesawat6">
+            <Component class="javax.swing.JLabel" name="lbl2WaktuTIba">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel25_kodePesawat7">
+            <Component class="javax.swing.JLabel" name="lbl2Harga">
               <Properties>
                 <Property name="text" type="java.lang.String" value="..."/>
               </Properties>

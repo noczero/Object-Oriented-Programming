@@ -26,6 +26,9 @@ public class Bandara {
         this.negara = negara;
     }
 
+    public Bandara() {
+        
+    }
     public String getIdBandara() {
         return idBandara;
     }

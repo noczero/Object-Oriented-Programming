@@ -99,8 +99,8 @@ public class Application {
         connection.updatePesanan(pesanan);
     }
 
-    public void deleteKonfirmasiTransaksi(String id) {
-        connection.deleteMaskapai(id);
+    public void deleteKonfirmasiTransaksi(Integer id) {
+        connection.deletePesanan(id);
     }
 
     //Penerbangan CRUD
@@ -186,6 +186,20 @@ public class Application {
 
     public Long getSaldo(String noKTP) {
         return connection.getSaldo(noKTP);
+    }
+    
+    //Jadwal Penerbangan Customer
+    public ArrayList<Penerbangan> getAllJdwlPenerbangan(){
+        return connection.getAllJadwalPenerbangan();
+    }
+    
+    //Pesan Penerbangan
+    public void pesanPenerbangan(Integer id) {
+        connection.pesanPenerbangan(id);
+    }
+    
+    public void insertPesanan(Pesanan pesanan) {
+        connection.insertPesanan(pesanan);
     }
     
 }

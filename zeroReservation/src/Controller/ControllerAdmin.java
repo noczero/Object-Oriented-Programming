@@ -33,6 +33,7 @@ public class ControllerAdmin implements ActionListener, MouseListener {
     ArrayList<Maskapai> maskapaiList = new ArrayList();
     //Konfirmasi Transaksi
     ArrayList<KonfirmasiTransaksi> transaksiList = new ArrayList();
+    ArrayList<Bandara> bandaraList = new ArrayList();
 
     public ControllerAdmin(Admin admin) {
         //this.model = model;
@@ -47,6 +48,7 @@ public class ControllerAdmin implements ActionListener, MouseListener {
         showCustomerTable();
         showMaskapaiTable();
         showTransaksiTable();
+        showBandaraTable();
     }
 
     // get data from model and display to tblCustomer
@@ -95,6 +97,23 @@ public class ControllerAdmin implements ActionListener, MouseListener {
                 pecah.getNoSeat(),
                 pecah.getStatus(),
                 pecah.getKodeBooking()
+            };
+            tmodel.addRow(row);
+        }
+    }
+    
+    // get konfirmasi transaksi data and display to tblTransaksi
+    public void showBandaraTable() {
+        this.bandaraList = model.getBandara();
+        DefaultTableModel tmodel = (DefaultTableModel) view.getTblBandara().getModel();
+        for (Bandara pecah : bandaraList) {
+            Object[] row = {
+                pecah.getIdBandara(),
+                pecah.getNama(),
+                pecah.getLatitude(),
+                pecah.getLongitude(),
+                pecah.getKota(),
+                pecah.getNegara()
             };
             tmodel.addRow(row);
         }
@@ -200,7 +219,7 @@ public class ControllerAdmin implements ActionListener, MouseListener {
             if (view.getTfIdPesan().getText().equals("")) {
                 JOptionPane.showMessageDialog(null, "Silahkan pilih Transaksi terlebih dahulu pada tabel Transaksi");
             } else {
-                model.deleteKonfirmasiTransaksi(view.getTfIdPesan().getText());
+                model.deleteKonfirmasiTransaksi(parseInt(view.getTfIdPesan().getText()));
                 refreshTableKonTransaksi();
             }
 
@@ -208,6 +227,48 @@ public class ControllerAdmin implements ActionListener, MouseListener {
             // logout button
             new ControllerLogin();
             view.dispose();
+        } else if (pilih.equals(view.getBtnInsertBandara())) {
+            // delete button bandara
+            if (view.getTfKodeBandara().getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Silahkan isi data Bandara terlebih dahulu");
+            } else {
+
+                Bandara bandara = new Bandara();
+                bandara.setIdBandara(view.getTfKodeBandara().getText());
+                bandara.setKota(view.getTfKota().getText());
+                bandara.setLatitude(view.getTfLatitude().getText());
+                bandara.setLongitude(view.getTfLongitude().getText());
+                bandara.setNama(view.getTfNamaBandara().getText());
+                bandara.setNegara(view.getTfNegara().getText());
+                
+                model.insertBandara(bandara);
+                refreshTableBandara();
+            }
+        } else if (pilih.equals(view.getBtnUpdateBandara())) {
+            // delete button bandara
+            if (view.getTfKodeBandara().getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Silahkan pilih data Bandara terlebih dahulu");
+            } else {
+
+                Bandara bandara = new Bandara();
+                bandara.setIdBandara(view.getTfKodeBandara().getText());
+                bandara.setKota(view.getTfKota().getText());
+                bandara.setLatitude(view.getTfLatitude().getText());
+                bandara.setLongitude(view.getTfLongitude().getText());
+                bandara.setNama(view.getTfNamaBandara().getText());
+                bandara.setNegara(view.getTfNegara().getText());
+                
+                model.updateBandara(bandara);
+                refreshTableBandara();
+            }
+        } else if (pilih.equals(view.getBtnDeleteBandara())) {
+            //e button bandara
+            if (view.getTfKodeBandara().getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Silahkan pilih data Bandara terlebih dahulu");
+            } else {
+                model.deleteBandara(view.getTfKodeBandara().getText());
+                refreshTableBandara();
+            }
         }
 
     }
@@ -222,16 +283,23 @@ public class ControllerAdmin implements ActionListener, MouseListener {
 
     public void refreshTableMaskapai() {
         maskapaiList.clear(); //clear the array
-        DefaultTableModel modelMaskapai = (DefaultTableModel) view.getTblMaskapai().getModel(); //get table
-        modelMaskapai.setRowCount(0); //set to zero
+        DefaultTableModel tmodel = (DefaultTableModel) view.getTblMaskapai().getModel(); //get table
+        tmodel.setRowCount(0); //set to zero
         showMaskapaiTable(); //display again from DB
     }
 
     public void refreshTableKonTransaksi() {
         transaksiList.clear(); //clear the array
-        DefaultTableModel modelTransaksi = (DefaultTableModel) view.getTblKonfirmasiTransaksi().getModel(); //get table
-        modelTransaksi.setRowCount(0); //set to zero
+        DefaultTableModel tmodel = (DefaultTableModel) view.getTblKonfirmasiTransaksi().getModel(); //get table
+        tmodel.setRowCount(0); //set to zero
         showTransaksiTable(); //display again from DB
+    }
+    
+    public void refreshTableBandara() {
+        bandaraList.clear(); //clear the array
+        DefaultTableModel tmodel = (DefaultTableModel) view.getTblBandara().getModel(); //get table
+        tmodel.setRowCount(0); //set to zero
+        showBandaraTable(); //display again from DB
     }
 
     // Event Listener
@@ -277,6 +345,18 @@ public class ControllerAdmin implements ActionListener, MouseListener {
             view.getTfNoSeat().setText(tModel.getValueAt(i, 3).toString());
             view.getTfStatus().setText(tModel.getValueAt(i, 4).toString());
             view.getTfKodeBooking().setText(tModel.getValueAt(i, 5).toString());
+        } else if (pilih.equals(view.getTblBandara())){
+            int i = view.getTblBandara().getSelectedRow();
+            TableModel tModel = view.getTblBandara().getModel();
+
+            //set the value of every text field in view
+            view.getTfKodeBandara().setText(tModel.getValueAt(i, 0).toString());
+            view.getTfNamaBandara().setText(tModel.getValueAt(i, 1).toString());
+            view.getTfLatitude().setText(tModel.getValueAt(i, 2).toString());
+            view.getTfLongitude().setText(tModel.getValueAt(i, 3).toString());
+            view.getTfKota().setText(tModel.getValueAt(i, 4).toString());
+            view.getTfNegara().setText(tModel.getValueAt(i, 5).toString());
+            
         }
     }
 

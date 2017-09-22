@@ -512,6 +512,19 @@ public class Database {
         }
     }
 
+    public void deletePesanan(Integer id) {
+        PreparedStatement ps = null;
+
+        String deleteString = "DELETE FROM `pesanan` WHERE `id_pesan` = ?";
+        try {
+            ps = connection.prepareStatement(deleteString);
+            ps.setInt(1, id);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
     //getKonfrimasiTransaksi
     public ArrayList<KonfirmasiTransaksi> getKonfirmasiTransaksi() {
         // need to join customer table and pesanan table
@@ -806,12 +819,12 @@ public class Database {
             result = ps.executeQuery();
             while (result.next()) {
                 Tiket tiket = new Tiket(
-                        result.getString("kode_booking"), 
+                        result.getString("kode_booking"),
                         result.getString("nama"),
                         result.getString("tujuan"),
-                        result.getString("asal"), 
-                        result.getDate("tgl_penerbangan"), 
-                        result.getString("waktu_brkt"), 
+                        result.getString("asal"),
+                        result.getDate("tgl_penerbangan"),
+                        result.getString("waktu_brkt"),
                         result.getString("waktu_tiba"),
                         result.getString("id_pesawat"),
                         result.getString("tipe"),
@@ -830,17 +843,17 @@ public class Database {
     public void updateSaldo(String noKTP, Long saldo) {
         PreparedStatement ps = null;
         String updateQuery = "UPDATE `customer` SET `saldo`=? WHERE no_ktp = ? ";
-        
+
         try {
             ps = connection.prepareStatement(updateQuery);
             ps.setLong(1, saldo);
             ps.setString(2, noKTP);
-            
+
             ps.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-         
+
     }
 
     public Long getSaldo(String noKTP) {
@@ -850,9 +863,9 @@ public class Database {
         try {
             ps = connection.prepareStatement(updateQuery);
             ps.setString(1, noKTP);
-            
+
             rs = ps.executeQuery();
-            
+
             while (rs.next()) {
                 return rs.getLong(1);
             }
@@ -862,4 +875,52 @@ public class Database {
         return null;
     }
 
+    //get All in customer Jadwal Penerbangan
+    
+    public ArrayList<Penerbangan> getAllJadwalPenerbangan(){
+        ArrayList<Penerbangan> listPenerbangan = new ArrayList();
+        ResultSet rs = null;
+        String query = "SELECT * FROM r_penerbangan JOIN jadwal USING (id_jadwal) JOIN pesawat USING (id_pesawat) JOIN maskapai USING (id_maskapai)";
+        try {
+            rs = statement.executeQuery(query);
+            while (rs.next()) {
+                Penerbangan jdwlPenerbangan = new Penerbangan();
+                jdwlPenerbangan.setAsal(rs.getString("asal"));
+                jdwlPenerbangan.setHarga(rs.getLong("harga"));
+                jdwlPenerbangan.setJadwal(rs.getDate("tgl_penerbangan"));
+                jdwlPenerbangan.setTujuan(rs.getString("tujuan"));
+                jdwlPenerbangan.setWaktuBerangkat(rs.getString("waktu_brkt"));
+                jdwlPenerbangan.setWaktuTiba(rs.getString("waktu_tiba"));
+                jdwlPenerbangan.setNamaMaskapai(rs.getString("nama"));
+                jdwlPenerbangan.setIdPesawat(rs.getString("id_pesawat"));
+                jdwlPenerbangan.setIdPenerbangan(rs.getInt("id_penerbangan"));
+                        
+                listPenerbangan.add(jdwlPenerbangan);
+            }
+        } catch (Exception e) {
+            System.out.println("Error load all");
+            e.printStackTrace();
+        }
+        return listPenerbangan;
+    }
+    
+    
+    public void pesanPenerbangan(Integer id) {
+        PreparedStatement preparedStatement = null;
+        String updateString = "UPDATE detilpesan SET `id_penerbangan`= ? WHERE `id_penerbangan`= 0";
+
+        try {
+            // make connection of prepared Statement using ?
+            preparedStatement = connection.prepareStatement(updateString);
+            preparedStatement.setInt(1, id);
+
+            //Execute update
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    
 }

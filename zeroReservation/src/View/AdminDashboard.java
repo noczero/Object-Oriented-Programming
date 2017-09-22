@@ -98,6 +98,25 @@ public class AdminDashboard extends javax.swing.JFrame {
         btnDeleteKonfirmasi = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
         tfKodeBooking = new javax.swing.JTextField();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tblBandara = new javax.swing.JTable();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        tfKodeBandara = new javax.swing.JTextField();
+        tfNegara = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        tfNamaBandara = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        Latitude = new javax.swing.JLabel();
+        tfLatitude = new javax.swing.JTextField();
+        jLabel30 = new javax.swing.JLabel();
+        tfLongitude = new javax.swing.JTextField();
+        tfKota = new javax.swing.JTextField();
+        jLabel31 = new javax.swing.JLabel();
+        btnInsertBandara = new javax.swing.JButton();
+        btnUpdateBandara = new javax.swing.JButton();
+        btnDeleteBandara = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Admin Dashboard");
@@ -490,6 +509,133 @@ public class AdminDashboard extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Konfirmasi Transaksi", jPanel3);
 
+        tblBandara.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Kode Bandara", "Nama Bandara", "Latitude", "Longitude", "Kota", "Negara"
+            }
+        ));
+        jScrollPane4.setViewportView(tblBandara);
+
+        jLabel25.setText("Kode Bandara");
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel26.setText("Form Kelola Bandara");
+
+        jLabel27.setText("Negara");
+
+        tfNamaBandara.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfNamaBandaraActionPerformed(evt);
+            }
+        });
+
+        jLabel28.setText("Nama Bandara");
+
+        Latitude.setText("Latitude");
+
+        tfLatitude.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfLatitudeActionPerformed(evt);
+            }
+        });
+
+        jLabel30.setText("Longitude");
+
+        jLabel31.setText("Kota");
+
+        btnInsertBandara.setText("Insert");
+
+        btnUpdateBandara.setText("Update");
+
+        btnDeleteBandara.setText("Delete");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 882, Short.MAX_VALUE)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel26)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Latitude)
+                            .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel31))
+                        .addGap(39, 39, 39)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tfKodeBandara)
+                            .addComponent(tfNamaBandara)
+                            .addComponent(tfLatitude)
+                            .addComponent(tfLongitude)
+                            .addComponent(tfKota, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel27)
+                                .addGap(39, 39, 39)
+                                .addComponent(tfNegara, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnInsertBandara)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnUpdateBandara)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnDeleteBandara)
+                                .addGap(19, 19, 19))))))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel26)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel27)
+                        .addComponent(tfNegara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel25)
+                        .addComponent(tfKodeBandara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel28)
+                    .addComponent(tfNamaBandara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Latitude)
+                    .addComponent(tfLatitude, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel30)
+                    .addComponent(tfLongitude, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel31)
+                    .addComponent(tfKota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnInsertBandara)
+                        .addComponent(btnUpdateBandara)
+                        .addComponent(btnDeleteBandara)))
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Kelola Bandara", jPanel4);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -551,6 +697,14 @@ public class AdminDashboard extends javax.swing.JFrame {
     private void tfTransNamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfTransNamaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfTransNamaActionPerformed
+
+    private void tfNamaBandaraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNamaBandaraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfNamaBandaraActionPerformed
+
+    private void tfLatitudeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfLatitudeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfLatitudeActionPerformed
     //Getter Setter
     public JTable getTblCustomer() {
         return tblCustomer;
@@ -734,6 +888,49 @@ public class AdminDashboard extends javax.swing.JFrame {
         return btnLogOut;
     }
 
+    public JButton getBtnDeleteBandara() {
+        return btnDeleteBandara;
+    }
+
+    public JButton getBtnInsertBandara() {
+        return btnInsertBandara;
+    }
+
+    public JButton getBtnUpdateBandara() {
+        return btnUpdateBandara;
+    }
+
+    public JTable getTblBandara() {
+        return tblBandara;
+    }
+
+    public JTextField getTfKodeBandara() {
+        return tfKodeBandara;
+    }
+
+    public JTextField getTfKota() {
+        return tfKota;
+    }
+
+    public JTextField getTfLatitude() {
+        return tfLatitude;
+    }
+
+    public JTextField getTfLongitude() {
+        return tfLongitude;
+    }
+
+    public JTextField getTfNamaBandara() {
+        return tfNamaBandara;
+    }
+
+    public JTextField getTfNegara() {
+        return tfNegara;
+    }
+    
+    
+    
+        
     // Event Handler
     public void addActionListener(ActionListener al){
         btnUpdateCustomer.addActionListener(al);
@@ -745,9 +942,14 @@ public class AdminDashboard extends javax.swing.JFrame {
         // Konfrimasi Transaksi
         btnUpdateKonfirmasi.addActionListener(al);
         btnDeleteKonfirmasi.addActionListener(al);
+        //  Kelola Bandara
+        btnInsertBandara.addActionListener(al);
+        btnUpdateBandara.addActionListener(al);
+        btnDeleteBandara.addActionListener(al);
         // Log out
         btnLogOut.addActionListener(al);
     } 
+    
     
     // Mouse Event
     @Override
@@ -755,14 +957,19 @@ public class AdminDashboard extends javax.swing.JFrame {
         tblCustomer.addMouseListener(me);
         tblMaskapai.addMouseListener(me);
         tblKonfirmasiTransaksi.addMouseListener(me);
+        tblBandara.addMouseListener(me);
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Latitude;
+    private javax.swing.JButton btnDeleteBandara;
     private javax.swing.JButton btnDeleteCustomer;
     private javax.swing.JButton btnDeleteKonfirmasi;
     private javax.swing.JButton btnDeleteMaskapai;
+    private javax.swing.JButton btnInsertBandara;
     private javax.swing.JButton btnInsertMaskapai;
     private javax.swing.JButton btnLogOut;
+    private javax.swing.JButton btnUpdateBandara;
     private javax.swing.JButton btnUpdateCustomer;
     private javax.swing.JButton btnUpdateKonfirmasi;
     private javax.swing.JButton btnUpdateMaskapai;
@@ -783,7 +990,13 @@ public class AdminDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -793,11 +1006,14 @@ public class AdminDashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblAdmin;
+    private javax.swing.JTable tblBandara;
     private javax.swing.JTable tblCustomer;
     private javax.swing.JTable tblKonfirmasiTransaksi;
     private javax.swing.JTable tblMaskapai;
@@ -805,12 +1021,18 @@ public class AdminDashboard extends javax.swing.JFrame {
     private javax.swing.JTextField tfIdPesan;
     private javax.swing.JTextField tfJenisKelamin;
     private javax.swing.JTextField tfJumPesawat;
+    private javax.swing.JTextField tfKodeBandara;
     private javax.swing.JTextField tfKodeBooking;
     private javax.swing.JTextField tfKodeMaskapai;
+    private javax.swing.JTextField tfKota;
+    private javax.swing.JTextField tfLatitude;
+    private javax.swing.JTextField tfLongitude;
     private javax.swing.JTextField tfMasNama;
     private javax.swing.JTextField tfMasPassword;
     private javax.swing.JTextField tfMasUsername;
+    private javax.swing.JTextField tfNamaBandara;
     private javax.swing.JTextField tfNamaCustomer;
+    private javax.swing.JTextField tfNegara;
     private javax.swing.JTextField tfNoKTP;
     private javax.swing.JTextField tfNoSeat;
     private javax.swing.JTextField tfNoTelepon;
